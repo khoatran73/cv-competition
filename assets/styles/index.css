@@ -1,0 +1,46 @@
+@import "base.css";
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 0;
+}
+
+.header {
+    background-color: var(--background-color);
+    display: block;
+}
+
+.header .nav .logo img {
+    width: 60px;
+}
+
+.main {
+    background-color: #89B5AF;
+    height: 100vh;
+}
+
+.main .container .cv-group {
+    margin: 0 auto;
+    display: flex;
+    max-width: 700px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.main .container .cv-title {
+    color: black;
+    font-size: 3.0rem;
+    font-weight: 600;
+}
+
+
+.main .container .cv-item {
+    width: calc(33% - 20px);
+    transition: all 0.4s;
+}
+
+.main .container .cv-item:hover {
+    transform: scale(1.05);
+}

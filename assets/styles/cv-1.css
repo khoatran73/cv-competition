@@ -1,0 +1,218 @@
+@import "base.css";
+
+.wrapper {
+    width: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    /* background-color: #89B5AF; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header button {
+    font-size: 2.4rem;
+    cursor: pointer;
+    background-color: #89B5AF;
+    outline: none;
+    border: none;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.header button i {
+    margin-right: 12px;
+    font-size: 2.6rem;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #051d25;
+}
+
+.cv {
+    margin: 30px 0;
+}
+
+.cv-title {
+    color: var(--light-color);
+    margin-bottom: 36px;
+}
+
+.cv-title h2 {
+    -webkit-user-modify: read-write;
+    -moz-user-modify: read-write;
+    user-modify: read-write;
+    font-size: 2.2rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.cv-title h2:focus {
+    border: none;
+    outline: none;
+}
+
+.editable {
+    -webkit-user-modify: read-write;
+    -moz-user-modify: read-write;
+    user-modify: read-write;
+}
+
+.editable:focus {
+    outline: 1px dashed #E84C3D;
+    background-color: #fff;
+}
+
+.cv-content {
+    margin: 30px 0;
+    width: calc(1.5 * 595px);
+    height: calc(1.5 * 842px);
+    background-color: white;
+}
+
+.cv-title {
+    text-align: center;
+}
+
+.cv-title p {
+    font-weight: 400;
+    font-size: 1.4rem;
+    margin-top: 4px;
+    color: rgb(209, 207, 207);
+}
+
+.cv-header {
+    display: flex;
+    padding: 36px 54px 32px 54px;
+}
+
+.cv-left {
+    width: 30%;
+}
+
+.cv-left img {
+    width: 180px;
+    border-radius: 50%;
+}
+
+.cv-right {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-right .name {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.cv-right .name::after {
+    content: "";
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 0;
+    background-color: #E84C3D;
+}
+
+.cv-right .name div {
+    font-weight: 600;
+    font-size: 3.0rem;
+    color: #E84C3D;
+}
+
+.cv-right .contact {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    
+}
+
+.cv-right .contact .contact-left {
+    width: 50%;
+}
+
+.cv-right .contact .contact-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.cv-right .contact div div {
+    font-size: 1.4rem;
+    color: #444;
+}
+
+.cv-right .contact div div span {
+    font-size: 1.4rem;
+    color: #E84C3D;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+/* CV MAIN */
+.cv-main-item {
+    display: flex;
+    padding: 0 54px;
+    margin-bottom: 32px;
+}
+
+.cv-main-item .cv-left .title {
+    border-bottom: 4px solid #E84C3D;
+    padding-bottom: 4px;
+    max-width: 180px;
+}
+
+.cv-main-item .cv-left .title span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #E84C3D;
+    text-transform: uppercase;
+}
+
+.cv-main-item .cv-right .content {
+    font-size: 1.4rem;
+    color: #444;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.cv-main-item .cv-right .content .content-header {
+    display: flex;
+    width: 100%;
+}
+
+.cv-main-item .cv-right .content .content-header div {
+    width: 50%;
+    font-size: 1.6rem;
+    color: #444;
+    font-weight: 600;
+}
+
+.cv-main-item .cv-right .content .content-header .time {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cv-main-item .cv-right .content .content-main li {
+    font-size: 1.4rem;
+    color: #444;
+    margin: 6px 0;
+}   
