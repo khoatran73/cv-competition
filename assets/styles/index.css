@@ -1,46 +1,209 @@
 @import "base.css";
 
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 12px 0;
+body {
+    font-family: "Poppins", sans-serif;
 }
 
 .header {
-    background-color: var(--background-color);
-    display: block;
+    /* box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.05); */
+    height: 100px;
+    display: flex;
+    align-items: center;
 }
 
-.header .nav .logo img {
-    width: 60px;
+.container {
+    width: 1160px;
+    margin: 0 auto;
+    padding: 8px 20px;
 }
+
+.header .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .nav .nav-cv a {
+    font-size: 2rem;
+}
+
+.header .nav .nav-cv a:hover {
+    color: #396EB0;
+    transition: ease-in-out 0.2s;
+}
+
+.header .nav .logo a img {
+    width: 80px;
+}
+
+/*  */
 
 .main {
-    background-color: #89B5AF;
-    height: 100vh;
+    border-bottom: 1px solid rgb(230, 229, 229);
+    height: 560px;
+    position: relative;
 }
 
-.main .container .cv-group {
-    margin: 0 auto;
+.main:before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 650px;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 400px;
+    border-color: transparent #fcebf3 #fcebf3 transparent;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.main .container:first-child {
+    padding: 0 20px;
+    height: 100%;
+}
+
+.heros {
     display: flex;
-    max-width: 700px;
     justify-content: space-between;
-    flex-wrap: wrap;
+    padding-top: 80px;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
-.main .container .cv-title {
-    color: black;
-    font-size: 3.0rem;
-    font-weight: 600;
+.heros-left, .heros-right {
+    width: 100%;
 }
 
-
-.main .container .cv-item {
-    width: calc(33% - 20px);
-    transition: all 0.4s;
+.heros-left {
+    padding-right: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-bottom: 120px;
 }
 
-.main .container .cv-item:hover {
-    transform: scale(1.05);
+.heros-left .title {
+    font-size: 4.6rem;
+    font-weight: 500;
 }
+
+.heros-left .content {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.heros-left a {
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    background-color: #E44747;
+    padding: 14px 0;
+    width: 240px;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-weight: 500;
+}
+
+.heros-right {
+    text-align: right;
+    position: relative;
+}
+
+.heros-right .cv-img {
+    width: 460px;
+    position: relative;
+    bottom: 0;
+    right: 50px;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.05);
+}
+
+.decor-1 {
+    position: absolute;
+    top: -40px;
+    left: -8px;
+    width: 120px;
+}
+
+.template .container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.template-left, .template-right {
+    width: 50%;
+}
+
+.template-left {
+    padding-right: 32px;
+}
+
+.template-left .title {
+    font-size: 3.6rem;
+}
+
+.template-left .content {
+    font-size: 1.6rem;
+    margin-top: 20px;
+}
+
+.template-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.template-right a {
+    font-size: 1.8rem;
+    margin-top: 20px;
+    text-decoration: underline;
+    color: #396EB0;
+}
+
+.template-right a:hover {
+    text-decoration: none;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: #142F43;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.footer-left {
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 15%;
+}
+
+.footer-right a img {
+    width: 40px;
+}
+
+.footer-right .youtube img {
+    width: 54px;
+}
+

@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Open+Sans:wght@400;500;600;700&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=family=Open+Sans:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
@@ -57,11 +60,12 @@
                     <div class="cv-main-item">
                         <div class="cv-left">
                             <div class="title">
-                                <span class="editable">Computer Skills</span>
+                                <span class="editable" id="keypress">Computer Skills</span>
                             </div>
                         </div>
                         <div class="cv-right">
-                            <div class="content editable">Microsoft Word, Excel, Access, PowerPoint, Outlook Express, Microsoft
+                            <div class="content editable">Microsoft Word, Excel, Access, PowerPoint, Outlook Express,
+                                Microsoft
                                 Windows XP and Microsoft Office XP Professional
                             </div>
                         </div>
@@ -73,7 +77,8 @@
                             </div>
                         </div>
                         <div class="cv-right">
-                            <div class="content editable">"I can work independently using my own initiative or as part of a
+                            <div class="content editable">"I can work independently using my own initiative or as part
+                                of a
                                 team."
                             </div>
                         </div>
@@ -146,6 +151,37 @@
                             <div class="content editable">References available upon request</div>
                         </div>
                     </div>
+                    <div class="cv-main-item">
+                        <div class="cv-left">
+                            <div class="title">
+                                <span class="editable">Work Experience</span>
+                            </div>
+                        </div>
+                        <div class="cv-right">
+                            <div class="content">
+                                <div class="content-header">
+                                    <div class="school editable">LTP high school</div>
+                                    <div class="time editable">2016</div>
+                                </div>
+                                <ul class="content-main">
+                                    <li class="editable">Lop truong</li>
+                                    <li class="editable">Lop truong</li>
+                                </ul>
+                            </div>
+                            <div class="content">
+                                <div class="content-header">
+                                    <div class="school editable">LTP high school</div>
+                                    <div class="time editable">2016</div>
+                                </div>
+                                <ul class="content-main">
+                                    <li class="editable">Lop truong</li>
+                                    <li class="editable">Lop truong</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
     </div>
@@ -154,5 +190,52 @@
 
     </div>
 </body>
+
+<script>
+    // $(".editable").focus(e => {
+    //     let element = e.target
+    //     element.classList.add("editor-controller")
+    //     let trashIcon = document.createElement("i")
+    //     trashIcon.classList.add("fas")
+    //     trashIcon.classList.add("fa-trash-alt")
+    //     trashIcon.setAttribute("id", "trash-icon")
+    //     element.appendChild(trashIcon)
+    // })
+
+    // $(".editable").focusout(e => {
+    //     let element = e.target
+    //     element.classList.remove("editor-controller")
+    //     document.getElementById("trash-icon").remove()
+    // })
+
+    // const setPage2 = setInterval(function () {
+    //     if ($("#cv").height() > 1263) {
+    //         if (!$("#cv").hasClass("page-2")) {
+    //             $("#cv").addClass("page-2")
+    //         }
+    //     } else {
+    //         if ($("#cv").hasClass("page-2")) {
+    //             $("#cv").removeClass("page-2")
+    //         }
+    //     }
+    // }, 500)
+
+    // Block enter
+    // $("#keypress").keypress(function (e) {
+    //     let key = e.which
+    //     console.log(key)
+    //     if (key === 13) {
+    //         e.preventDefault()
+    //     }
+    // })
+
+
+    // can edit
+    // $(".editable").attr('contenteditable', 'true')
+    // console.log($("#cv").width())
+
+
+
+</script>
 
 </html>
