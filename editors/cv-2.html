@@ -31,24 +31,6 @@
                         </a>
                     </div>
                     <div class="design">
-                        <div class="paper">
-                            Đổi Mẫu
-                            <i class="far fa-copy"></i>
-                            <div class="template">
-                                <h6>Chọn Template</h6>
-                                <div class="template-group">
-                                    <a href="cv-1.html" class="template-item active">
-                                        <img src="../assets/images/template-item-1.PNG" alt="">
-                                    </a>
-                                    <a href="cv-2.html" class="template-item">
-                                        <img src="../assets/images/template-item-1.PNG" alt="">
-                                    </a>
-                                    <a href="cv-3.html" class="template-item">
-                                        <img src="../assets/images/template-item-1.PNG" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                         <div class="color-tone">
                             Tông Màu
                             <div class="color">
@@ -63,6 +45,24 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="paper">
+                            Đổi Mẫu
+                            <i class="far fa-copy"></i>
+                            <div class="template">
+                                <h6>Chọn Template</h6>
+                                <div class="template-group">
+                                    <a href="cv-1.html" class="template-item">
+                                        <img src="../assets/images/template-item-1.jpg" alt="">
+                                    </a>
+                                    <a href="cv-2.html" class="template-item active">
+                                        <img src="../assets/images/template-item-2.jpg" alt="">
+                                    </a>
+                                    <a href="cv-3.html" class="template-item">
+                                        <img src="../assets/images/template-item-1.jpg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="style">
                             Thiết Kế
                             <div class="style-group">
@@ -74,14 +74,14 @@
                                 <div class="align-center style-item"><i class="fas fa-align-center"></i></div>
                                 <div class="align-left style-item"><i class="fas fa-align-left"></i></div>
                                 <div class="align-justify style-item"><i class="fas fa-align-justify"></i></div>
-                                <div class="style-item" id="add-element" data-toggle="modal"
-                                    data-target="#modal-add"><i class="fas fa-plus"></i></div>
+                                <div class="style-item" id="add-element" data-toggle="modal" data-target="#modal-add"><i
+                                        class="fas fa-plus"></i></div>
                             </div>
                         </div>
                         <div class="font">
                             Font chữ
-                            <select id="font-select">
-                                <option value="">Chọn font chữ</option>
+                            <select class="custom-select" id="font-select">
+                                <option checked>Chọn font chữ</option>
                                 <option value="DejaVu">DejaVu</option>
                                 <option value="Roboto">Roboto</option>
                                 <option value="Comic Sans MS">Comic Sans MS</option>
@@ -112,7 +112,9 @@
                 <div id="cv">
                     <div class="cv-header">
                         <div class="cv-header-img">
-                            <img src="../assets/images/baovy.jpg" alt="">
+                            <img id="user-img" src="../assets/images/baovy.jpg" alt="">
+                            <label for="form-upload" id="upload-img"><i class="fas fa-camera"></i></label>
+                            <input type="file" id="form-upload" type="text" hidden>
                         </div>
                         <div class="cv-header-name-group editable">
                             <div class="name">Nguyen Tran Bao Vy</div>
@@ -124,7 +126,8 @@
                             <div class="cv-main-left-item contact editable">
                                 <div class="title dark-color"><span>Liên Hệ</span></div>
                                 <ul>
-                                    <li class="address">Địa chỉ: 903 Trần Xuân Soạn</li>
+                                    <li class="address">Địa chỉ: 903 Trần Xuân Soạn, p. Tân Phong, quận 7, TP Hồ Chí
+                                        Minh</li>
                                     <li class="phone">SĐT: 012345678</li>
                                     <li class="email">Email: baovy@gmail.com</li>
                                     <li class="github">Github: baovy@nodejs_vivian</li>
@@ -197,10 +200,22 @@
                             </div>
                             <div class="skill cv-main-right-item editable">
                                 <div class="title">Kỹ năng</div>
-                                <ul>
-                                    <li>HTML: 85%</li>
-                                    <li>CSS: 85%</li>
-                                    <li>JavaScript: 85%</li>
+                                <ul id="content-skill">
+                                    <li>
+                                        <span>HTML</span>
+                                        <input class="slider" type="range" min="1" max="100" value="20" id="slider-1">
+                                        <span id="slider-value-1" class="slider-value">20%</span>
+                                    </li>
+                                    <li>
+                                        <span>CSS</span>
+                                        <input class="slider" type="range" min="1" max="100" value="20" id="slider-2">
+                                        <span id="slider-value-2" class="slider-value">20%</span>
+                                    </li>
+                                    <li>
+                                        <span>JavaScript</span>
+                                        <input class="slider" type="range" min="1" max="100" value="20" id="slider-3">
+                                        <span id="slider-value-3" class="slider-value">20%</span>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="experience cv-main-right-item editable">
@@ -222,7 +237,7 @@
             </div>
         </section>
     </div>
-    
+
     <!-- Modal -->
     <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
@@ -234,7 +249,7 @@
                 <div class="modal-body">
                     <div class="element">
                         <div class="element-item">
-                            <div class="check add-element" data-dismiss="modal" data-class="name" >
+                            <div class="check add-element" data-dismiss="modal" data-class="name">
                                 <i class="fa fa-plus"></i>
                             </div>
                             <span>Họ Tên</span>
@@ -258,7 +273,7 @@
                             <span>Hoạt Động</span>
                         </div>
                         <div class="element-item">
-                            <div class="check add-element" data-dismiss="modal" data-class="aducation">
+                            <div class="check add-element" data-dismiss="modal" data-class="education">
                                 <i class="fa fa-plus"></i>
                             </div>
                             <span>Học Vấn</span>

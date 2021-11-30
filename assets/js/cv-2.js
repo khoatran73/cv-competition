@@ -3,13 +3,27 @@ $(".color-item").click(function () {
     $(".color-item").removeClass("active")
     $(this).addClass("active")
 
-    console.log($(this).attr("data-light"))
-
     const darkColor = $(this).attr("data-dark")
     const lightColor = $(this).attr("data-light")
 
     $(".dark-color").css("background-color", darkColor)
     $(".light-color").css("background-color", lightColor)
+})
+
+// Add element
+$(".add-element").click(function () {
+    const element = $(this).attr("data-class")
+    const xhr = new XMLHttpRequest()
+    xhr.onload = function () {
+        addElement(element)
+        enableEditable()
+        userEdit()
+        handleTrashIcon()
+        displayPlusIcon()
+        slider()
+    }
+    xhr.open("GET", "/editors/cv-2.html", true)
+    xhr.send()
 })
 
 function addElement(element) {
@@ -28,7 +42,7 @@ function addElement(element) {
                     <li class="github">Github: baovy@nodejs_vivian</li>
                 </ul>
             </div>`
-            addCvMainLeftElement("activicontactty", classElement)
+            addCvMainLeftElement("contact", classElement)
             break
         case "hobby":
             classElement = `<div class="cv-main-left-item hobby editable">
@@ -108,10 +122,22 @@ function addElement(element) {
         case "skill":
             classElement = ` <div class="skill cv-main-right-item editable">
                 <div class="title">Kỹ năng</div>
-                <ul>
-                    <li>HTML: 85%</li>
-                    <li>CSS: 85%</li>
-                    <li>JavaScript: 85%</li>
+                <ul id="content-skill">
+                    <li>
+                        <span>HTML</span>
+                        <input class="slider" type="range" min="1" max="100" value="20" id="slider-1">
+                        <span id="slider-value-1" class="slider-value">20%</span>
+                    </li>
+                    <li>
+                        <span>CSS</span>
+                        <input class="slider" type="range" min="1" max="100" value="20" id="slider-2">
+                        <span id="slider-value-2" class="slider-value">20%</span>
+                    </li>
+                    <li>
+                        <span>JavaScript</span>
+                        <input class="slider" type="range" min="1" max="100" value="20" id="slider-3">
+                        <span id="slider-value-3" class="slider-value">20%</span>
+                    </li>
                 </ul>
             </div>`
             addCvMainRightElement("skill", classElement)
@@ -168,6 +194,41 @@ function addCvMainRightElement(className, classElement) {
         alert("Không thể thêm một thành phần đã có")
         return
     }
-        
+
     $(".cv-main-right").append(classElement)
 }
+
+function addSkill() {
+    let skill = document.createElement("li")
+    let id = parseInt($("#content-skill").children().length) + 1
+    skill.innerHTML = `<span>JavaScript</span>
+    <input class="slider" type="range" min="1" max="100" value="20" id="slider-${id}">
+    <span id="slider-value-3" class="slider-value">20%</span>`
+
+    document.getElementById("content-skill").appendChild(skill)
+
+    const xhr = new XMLHttpRequest()
+    xhr.onload = function () {
+        slider()
+    }
+    xhr.open("GET", "/editors/cv-2.html", true)
+    xhr.send()
+}
+
+function slider() {
+    for (let i = 1; i <= $("#content-skill").children().length; i++) {
+        let oldValue = $("#slider-" + i).val()
+        $("#slider-" + i).css("background", `linear-gradient(to right, #737373 0%, #737373 ${oldValue}%, #494F56 ${oldValue}%, #494F56 100%)`)
+        $(".slider").attr("contenteditable", "false")
+        $(".slider-value").attr("contenteditable", "false")
+        let slider = document.getElementById("slider-" + i)
+        slider.oninput = function () {
+            let value = (this.value - this.min) / (this.max - this.min) * 100
+            this.style.background = 'linear-gradient(to right, #737373 0%, #737373 ' + value + '%, #494F56 ' + value + '%, #494F56 100%)'
+            $("#slider-value-" + i).html($(this).val() + "%")
+        }
+    }
+}
+
+slider()
+
