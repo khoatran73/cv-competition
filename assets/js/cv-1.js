@@ -2,7 +2,7 @@ $(".slider").css("background", "linear-gradient(to right, #374885 0%, #374885 19
 $(".slider").attr("contenteditable", "false")
 
 // Color item clicked
-$(".color-item").click(function () {
+$(".color-item").click(function (e) {
     $(".color-item").removeClass("active")
     $(this).addClass("active")
 
@@ -28,6 +28,40 @@ function slider() {
 }
 slider()
 
+function displayPlusIcon() {
+    $(".skill").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-skill")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => addSkill())
+    })
+
+    $(".skill").focusout(() => $(".skill").removeClass("add-skill"))
+
+    $(".experience").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-experience")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => {
+            addExperience()
+        })
+    })
+
+    $(".experience").focusout(() => $(".experience").removeClass("add-experience"))
+}
+
+displayPlusIcon()
+
 function addSkill() {
     let skill = document.createElement("div")
     let id = parseInt($("#content-skill").children().length) + 1
@@ -43,6 +77,28 @@ function addSkill() {
     }
     xhr.open("GET", "/editors/cv-2.html", true)
     xhr.send()
+}
+
+function addExperience() {
+    let experience = document.createElement("li")
+    let id = parseInt($("#content-experience").children().length) + 2
+    experience.innerHTML = `<div class="school">
+            Green Entrepreneurship Fellowship
+        </div>
+        <div class="time">
+            Event Assistant | 2021
+        </div>
+        <ul>
+            <li>
+                Manage groups and social projects
+            </li>
+            <li>
+                Support to organize training sessions
+            </li>
+        </ul>`
+    experience.classList.add(`experience-${id}`)
+
+    document.getElementById("content-experience").appendChild(experience)
 }
 
 $(".add-element").click(function () {
@@ -156,8 +212,8 @@ function addElement(element) {
             addCvMainLeftElement("hobby", classElement)
             break
         case "education":
-            classElement = ` <div class="education cv-main-right-item editable">
-                <div class="title">
+            classElement = `<div class="cv-main-right-item education editable">
+                <div class="title light-color">
                     <i class="fas fa-graduation-cap dark-color"></i>
                     Education
                 </div>
@@ -209,13 +265,13 @@ function addElement(element) {
             addCvMainRightElement("education", classElement)
             break
         case "experience":
-            classElement = `<div class="experience cv-main-right-item editable">
-                <div class="title">
+            classElement = `<div class="cv-main-right-item experience editable">
+                <div class="title light-color experience-1">
                     <i class="fas fa-briefcase dark-color"></i>
                     Work Experience
                 </div>
-                <ul>
-                    <li>
+                <ul id="content-experience">
+                    <li class="experience-2">
                         <div class="school">
                             Eteacher
                         </div>
@@ -236,7 +292,7 @@ function addElement(element) {
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="experience-3">
                         <div class="school">
                             Green Entrepreneurship Fellowship
                         </div>
@@ -259,6 +315,7 @@ function addElement(element) {
         // default:
 
     }
+    loadMargin()
 }
 
 function addNameElement() {
@@ -297,3 +354,42 @@ function addCvMainRightElement(className, classElement) {
     $(".cv-main-right").append(classElement)
 }
 
+function marginTopElement(element) {
+    if ($("." + element).length > 0) {
+        const xhr = new XMLHttpRequest()
+        xhr.onload = function () {
+            const a4Height = 1135.66
+            const topCv = $("#cv").offset().top
+            const cssMarginTop = parseInt($("." + element).css("margin-top"))
+            const topElement = $("." + element).offset().top - topCv - cssMarginTop
+            const rect = document.querySelector("." + element).getBoundingClientRect()
+            const bottomElement = rect.height + topElement
+            const mT = a4Height - topElement
+            if (topElement < a4Height && bottomElement > (a4Height - 16)) {
+                marginTop(element, mT)
+            } else {
+                marginTop(element, 0)
+            }
+        }
+        xhr.open("GET", "/editors/cv-1.html", true)
+        xhr.send()
+    }
+}
+
+function marginTop(element, mT) {
+    $("." + element).css("margin-top", mT + "px")
+}
+
+function loadMargin() {
+    marginTopElement("certification")
+    marginTopElement("hobby")
+    for (let i = 1; i <= 10; i++) {
+        marginTopElement("experience-" + i)
+    }
+}
+
+loadMargin()
+$(".editable").keydown(function (e) {
+    loadMargin()
+    setCvHeight()
+})

@@ -19,15 +19,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 #cv {
-    /* width: 892.5px; 
-    min-height: 1263px;  */
     width: calc(595px * 1.335);
     min-height: calc(842px * 1.33); 
     background-color: #fff;
     font-family: times, "Times New Roman";
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.cv-height {
+    height: calc(1120px * 2);
+}
+
+#cv .bottom-line {
+    width: 100%;
+    height: 16px;
+    background-color: #152D35;
+    position: absolute;
+    top: 1120px;
 }
 
 .cv-header {
@@ -41,12 +56,14 @@
     width: 40%;
     background-color: var(--main-bg-color);
     padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cv-header .cv-header-img img {
-    /* max-width: 240px; 
-    max-height: 240px; */
-    width: 100%;
+    max-width: 320px;
+    max-height: 320px;
 }
 
 .cv-header .cv-header-img label {
@@ -129,7 +146,43 @@
 
 .cv-main-left {
     width: 40%;
+    height: 100%;
     background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.introduce {
+    order: 1;
+}
+
+.contact {
+    order: 2;
+}
+
+.skill {
+    order: 3;
+}
+
+.certification {
+    order: 4;
+}
+
+.hobby {
+    order: 5;
+}
+
+.cv-main-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.education {
+    order: 1;
+}
+
+.experience {
+    order: 2;
 }
 
 .cv-main-left-item, .cv-main-right-item {
@@ -289,7 +342,7 @@
     font-size: 2rem;
 }
 
-.page-2 {
+/* .page-2 {
     position: relative;
 }
 
@@ -301,14 +354,14 @@
     background-color:#505C69;
     border-radius: 3px 0 0 3px;
     position: absolute;
-    top: 1124.07px;
+    top: 1119.86px;
     left: -80px;
     width: 80px;
     height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .editable {
     border: none;
@@ -319,7 +372,7 @@
     outline: 1px dashed #000;
 }
 
-.editor-controller, .add-skill {
+.editor-controller, .add-skill, .add-experience {
     position: relative;
 }
 
@@ -333,9 +386,10 @@
     cursor: pointer;
     font-size: 1.4rem;
     color: #666;
+    z-index: 1;
 }
 
-.add-skill .fa-plus {
+.add-skill .fa-plus, .add-experience .fa-plus {
     position: absolute;
     top: calc(50% - 7px);
     left: 4px;
@@ -346,4 +400,9 @@
     -moz-user-modify: none;
     user-select: none;
     cursor: pointer;
+    z-index: 1;
+}
+
+.page-2 {
+    position: relative;
 }

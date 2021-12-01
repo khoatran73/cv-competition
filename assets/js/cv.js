@@ -28,18 +28,36 @@ const exportHtml2Pdf = (e) => {
         .save()
 }
 
-// Display Page 2 tag
-const setPage2 = setInterval(function () {
-    if ($("#cv").height() > 1119.86) {
-        if (!$("#cv").hasClass("page-2")) {
-            $("#cv").addClass("page-2")
-        }
+function setCvHeight() {
+    const cvMainLeft = document.querySelector(".cv-main-left")
+    const cvMainRight = document.querySelector(".cv-main-right")
+
+    const childClassLeft = cvMainLeft.children[cvMainLeft.children.length - 1].classList[1]
+    const childClassRight = cvMainRight.children[cvMainRight.children.length - 1].classList[1]
+
+    const childLeft = document.querySelector("." + childClassLeft)
+    const childRight = document.querySelector("." + childClassRight)
+
+    const rectLeft = childLeft.getBoundingClientRect()
+    const rectRight = childRight.getBoundingClientRect()
+
+    const topCv = $("#cv").offset().top
+
+    const topElementLeft = $("." + childClassLeft).offset().top - topCv
+    const topElementRight = $("." + childClassRight).offset().top - topCv
+
+    if ((topElementLeft + rectLeft.height) > 1135.86 || (topElementRight + rectRight.height) > 1135.86) {
+        if (!$("#cv").hasClass("cv-height"))
+            $("#cv").addClass("cv-height")
     } else {
-        if ($("#cv").hasClass("page-2")) {
-            $("#cv").removeClass("page-2")
-        }
+        if ($("#cv").hasClass("cv-height"))
+            $("#cv").removeClass("cv-height")
     }
-}, 500)
+}
+
+setCvHeight()
+
+// setCvHeight()
 
 // allow editable
 enableEditable()
@@ -110,10 +128,15 @@ function handleTrashIcon() {
         trashIcon.classList.add("fa-trash-alt")
         element.appendChild(trashIcon)
 
-        trashIcon.addEventListener("click", e => removeParent(e))
+        trashIcon.addEventListener("click", e => {
+            removeParent(e)
+            loadMargin()
+            setCvHeight()
+        })
     })
 
     $(".editable").focusout(() => $(".editable").removeClass("editor-controller"))
+
 }
 
 function removeParent(e) {
@@ -137,24 +160,10 @@ formUpload.addEventListener("change", e => {
         fileReader.onload = event => userImage.src = event.target.result
 
         fileReader.readAsDataURL(file)
+        loadMargin()
+        // setCvHeight()
     })
 })
 
-function displayPlusIcon() {
-    $(".skill").focus(e => {
-        const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-skill")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
-        element.appendChild(plusIcon)
-
-        plusIcon.addEventListener("click", () => addSkill())
-    })
-
-    $(".skill").focusout(() => $(".skill").removeClass("add-skill"))
-}
-displayPlusIcon()
 
 
