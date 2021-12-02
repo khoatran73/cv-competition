@@ -57,8 +57,6 @@ function setCvHeight() {
 
 setCvHeight()
 
-// setCvHeight()
-
 // allow editable
 enableEditable()
 function enableEditable() {
@@ -160,10 +158,33 @@ formUpload.addEventListener("change", e => {
         fileReader.onload = event => userImage.src = event.target.result
 
         fileReader.readAsDataURL(file)
-        loadMargin()
-        // setCvHeight()
+        
     })
+    loadMargin()
 })
+
+function marginTopElement(element) {
+    if ($("." + element).length > 0) {
+        const xhr = new XMLHttpRequest()
+        xhr.onload = function () {
+            const a4Height = 1135.66
+            const topCv = $("#cv").offset().top
+            const cssMarginTop = parseInt($("." + element).css("margin-top"))
+            const topElement = $("." + element).offset().top - topCv - cssMarginTop
+            const rect = document.querySelector("." + element).getBoundingClientRect()
+            const bottomElement = rect.height + topElement
+            const mT = a4Height - topElement
+            if (topElement < a4Height && bottomElement > (a4Height - 16)) {
+                marginTop(element, mT)
+            } else {
+                marginTop(element, 0)
+            }
+        }
+        xhr.open("GET", "/editors/cv-1.html", true)
+        xhr.send()
+    }
+}
+
 
 
 

@@ -229,6 +229,92 @@ function slider() {
         }
     }
 }
-
 slider()
 
+
+function displayPlusIcon() {
+    $(".skill").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-skill")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => addSkill())
+    })
+
+    $(".skill").focusout(() => $(".skill").removeClass("add-skill"))
+
+    $(".activity").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-activity")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => {
+            addActivity()
+            loadMargin()
+        })
+    })
+
+    $(".activity").focusout(() => $(".activity").removeClass("add-activity"))
+}
+
+displayPlusIcon()
+
+function addSkill() {
+    let skill = document.createElement("li")
+    let id = parseInt($("#content-skill").children().length) + 1
+    skill.innerHTML = `<span>HTML</span>
+    <input class="slider" type="range" min="1" max="100" value="20" id="slider-${id}">
+    <span id="slider-value-${id}" class="slider-value">20%</span>
+    `
+
+    document.getElementById("content-skill").appendChild(skill)
+
+    const xhr = new XMLHttpRequest()
+    xhr.onload = function () {
+        slider()
+    }
+    xhr.open("GET", "/editors/cv-2.html", true)
+    xhr.send()
+}
+
+function addActivity() {
+    let activity = document.createElement("li")
+    let id = parseInt($("#content-activity").children().length) + 1
+    activity.innerHTML = `
+        <div class="header">THÁNG 1/2021</div>
+        <div class="content">
+            XUÂN TÌNH NGUYỆN: Phát quà xuân
+            cho các bạn nhỏ tại tỉnh Long An. Tham
+            gia bữa ăn tình thương và các hoạt
+            động ca hát.
+        </div>`
+    activity.classList.add(`activity-${id}`)
+
+    document.getElementById("content-activity").appendChild(activity)
+}
+
+
+function marginTop(element, mT) {
+    $("." + element).css("margin-top", mT + "px")
+}
+
+function loadMargin() {
+    marginTopElement("experience")
+    for (let i = 1; i <= 10; i++) {
+        marginTopElement("activity-" + i)
+    }
+}
+
+loadMargin()
+$(".editable").keydown(function () {
+    loadMargin()
+    setCvHeight()
+})

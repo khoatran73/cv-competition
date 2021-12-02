@@ -54,10 +54,28 @@ function displayPlusIcon() {
 
         plusIcon.addEventListener("click", () => {
             addExperience()
+            loadMargin()
         })
     })
 
     $(".experience").focusout(() => $(".experience").removeClass("add-experience"))
+
+    $(".education").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-education")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => {
+            addEducation()
+            loadMargin()
+        })
+    })
+
+    $(".education").focusout(() => $(".education").removeClass("add-education"))
 }
 
 displayPlusIcon()
@@ -65,7 +83,7 @@ displayPlusIcon()
 function addSkill() {
     let skill = document.createElement("div")
     let id = parseInt($("#content-skill").children().length) + 1
-    skill.innerHTML = `<span>JavaScript</span>
+    skill.innerHTML = `<span>Self study</span>
     <input class="slider" type="range" min="1" max="100" value="20" id="slider-${id}">
     `
 
@@ -75,7 +93,7 @@ function addSkill() {
     xhr.onload = function () {
         slider()
     }
-    xhr.open("GET", "/editors/cv-2.html", true)
+    xhr.open("GET", "/editors/cv-1.html", true)
     xhr.send()
 }
 
@@ -101,6 +119,30 @@ function addExperience() {
     document.getElementById("content-experience").appendChild(experience)
 }
 
+function addEducation() {
+    let education = document.createElement("li")
+    let id = parseInt($("#content-experience").children().length) + 2
+    education.innerHTML =
+        `<div class="school">
+            Pha Lai high school
+        </div>
+        <div class="time">
+            2016 - 2019
+        </div>
+        <ul>
+            <li>
+                GPA: 8.5/10
+            </li>
+            <li>
+                Consolation prize for Informatics at Hai Duong
+                province
+            </li>
+        </ul>`
+    education.classList.add(`education-${id}`)
+
+    document.getElementById("content-education").appendChild(education)
+}
+
 $(".add-element").click(function () {
     const element = $(this).attr("data-class")
     const xhr = new XMLHttpRequest()
@@ -112,7 +154,7 @@ $(".add-element").click(function () {
         displayPlusIcon()
         slider()
     }
-    xhr.open("GET", "/editors/cv-2.html", true)
+    xhr.open("GET", "/editors/cv-1.html", true)
     xhr.send()
 })
 
@@ -354,28 +396,6 @@ function addCvMainRightElement(className, classElement) {
     $(".cv-main-right").append(classElement)
 }
 
-function marginTopElement(element) {
-    if ($("." + element).length > 0) {
-        const xhr = new XMLHttpRequest()
-        xhr.onload = function () {
-            const a4Height = 1135.66
-            const topCv = $("#cv").offset().top
-            const cssMarginTop = parseInt($("." + element).css("margin-top"))
-            const topElement = $("." + element).offset().top - topCv - cssMarginTop
-            const rect = document.querySelector("." + element).getBoundingClientRect()
-            const bottomElement = rect.height + topElement
-            const mT = a4Height - topElement
-            if (topElement < a4Height && bottomElement > (a4Height - 16)) {
-                marginTop(element, mT)
-            } else {
-                marginTop(element, 0)
-            }
-        }
-        xhr.open("GET", "/editors/cv-1.html", true)
-        xhr.send()
-    }
-}
-
 function marginTop(element, mT) {
     $("." + element).css("margin-top", mT + "px")
 }
@@ -389,7 +409,7 @@ function loadMargin() {
 }
 
 loadMargin()
-$(".editable").keydown(function (e) {
+$(".editable").keydown(function () {
     loadMargin()
     setCvHeight()
 })
