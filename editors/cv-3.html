@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/styles/cv-2.css">
+    <link rel="stylesheet" href="../assets/styles/cv-3.css">
     <link rel="shortcut icon" href="../assets/images/header-logo.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -18,7 +18,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://unpkg.com/html2canvas@1.3.2/dist/html2canvas.min.js"></script>
     <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    <title>CV 2</title>
+    <title>CV 3</title>
 </head>
 
 <body>
@@ -35,13 +35,13 @@
                         <div class="color-tone">
                             Tông Màu
                             <div class="color">
-                                <div data-dark="#BC85A3" data-light="#F8DAE9" class="red color-item active">
+                                <div data-dark="#77838D" data-light="#C7D0D8" class="red color-item active">
                                     <i class="fa fa-check"></i>
                                 </div>
-                                <div data-dark="#316B83" data-light="#D7E9F7" class="blue color-item">
+                                <div data-dark="#889EAF" data-light="#D7E9F7" class="blue color-item">
                                     <i class="fa fa-check"></i>
                                 </div>
-                                <div data-dark="#558776" data-light="#DDEEDF" class="green color-item">
+                                <div data-dark="#87A7B3" data-light="#E1E5EA" class="green color-item">
                                     <i class="fa fa-check"></i>
                                 </div>
                             </div>
@@ -55,10 +55,10 @@
                                     <a href="cv-1.html" class="template-item">
                                         <img src="../assets/images/template-item-1.jpg" alt="">
                                     </a>
-                                    <a href="cv-2.html" class="template-item active">
+                                    <a href="cv-2.html" class="template-item">
                                         <img src="../assets/images/template-item-2.jpg" alt="">
                                     </a>
-                                    <a href="cv-3.html" class="template-item">
+                                    <a href="cv-3.html" class="template-item active">
                                         <img src="../assets/images/template-item-3.jpg" alt="">
                                     </a>
                                 </div>
@@ -111,7 +111,7 @@
         <section class="cv">
             <div class="cv-content">
                 <div id="cv">
-                    <div class="cv-header">
+                    <div class="cv-header light-color">
                         <div class="cv-header-img">
                             <img id="user-img" src="../assets/images/baovy.jpg" alt="">
                             <label for="form-upload" id="upload-img"><i class="fas fa-camera"></i></label>
@@ -183,15 +183,18 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="cv-main-right light-color">
+                        <div class="cv-main-right">
                             <div class="education cv-main-right-item editable">
-                                <div class="title">Học vấn</div>
-                                <ul>
+                                <div class="title">
+                                    <i class="fas fa-graduation-cap dark-color-icon"></i>
+                                    Học vấn
+                                </div>
+                                <ul class="light-color">
                                     <li>Trình độ: Sinh viên năm 3</li>
                                     <li>Trường: Đại học Tôn Đức Thắng</li>
                                     <li>
                                         Ngoại ngữ:
-                                        <ul>
+                                        <ul class="light-color">
                                             <li>Tiếng Anh: IELTS 7.0</li>
                                             <li>Tiếng Trung: HSK 5</li>
                                         </ul>
@@ -199,15 +202,21 @@
                                 </ul>
                             </div>
                             <div class="award cv-main-right-item editable">
-                                <div class="title">Giải thưởng</div>
-                                <ul>
+                                <div class="title">
+                                    <i class="fas fa-award dark-color-icon"></i>
+                                    Giải thưởng
+                                </div>
+                                <ul class="light-color">
                                     <li>Giải nhì: Cuộc thi nét đẹp sinh viên</li>
                                     <li>Giải nhì: Cuộc thi học thuật</li>
                                 </ul>
                             </div>
                             <div class="skill cv-main-right-item editable">
-                                <div class="title">Kỹ năng</div>
-                                <ul id="content-skill">
+                                <div class="title">
+                                    <i class="fas fa-lightbulb dark-color-icon"></i>
+                                    Kỹ năng
+                                </div>
+                                <ul id="content-skill" class="light-color">
                                     <li>
                                         <span>Research</span>
                                         <input class="slider" type="range" min="1" max="100" value="20" id="slider-1">
@@ -226,8 +235,11 @@
                                 </ul>
                             </div>
                             <div class="experience cv-main-right-item editable">
-                                <div class="title">Kinh nghiệm làm việc</div>
-                                <ul>
+                                <div class="title">
+                                    <i class="fas fa-briefcase dark-color-icon"></i>
+                                    Kinh nghiệm làm việc
+                                </div>
+                                <ul class="light-color">
                                     <li>Tháng 2/2021- 6/2021: Thực tập tại
                                         công ty FPT.
                                     </li>
@@ -312,7 +324,7 @@
         </div>
     </div>
     <script src="../assets/js/cv.js"></script>
-    <script src="../assets/js/cv-2.js"></script>
+    <script src="../assets/js/cv-3.js"></script>
 </body>
 
 

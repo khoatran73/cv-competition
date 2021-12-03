@@ -1,4 +1,3 @@
-// Color item clicked
 $(".color-item").click(function () {
     $(".color-item").removeClass("active")
     $(this).addClass("active")
@@ -7,10 +6,26 @@ $(".color-item").click(function () {
     const lightColor = $(this).attr("data-light")
 
     $(".dark-color").css("background-color", darkColor)
+    $(".dark-color-icon").css("color", darkColor)
     $(".light-color").css("background-color", lightColor)
 })
 
-// Add element
+function slider() {
+    for (let i = 1; i <= $("#content-skill").children().length; i++) {
+        let oldValue = $("#slider-" + i).val()
+        $("#slider-" + i).css("background", `linear-gradient(to right, #737373 0%, #737373 ${oldValue}%, #494F56 ${oldValue}%, #494F56 100%)`)
+        $(".slider").attr("contenteditable", "false")
+        $(".slider-value").attr("contenteditable", "false")
+        let slider = document.getElementById("slider-" + i)
+        slider.oninput = function () {
+            let value = (this.value - this.min) / (this.max - this.min) * 100
+            this.style.background = 'linear-gradient(to right, #737373 0%, #737373 ' + value + '%, #494F56 ' + value + '%, #494F56 100%)'
+            $("#slider-value-" + i).html($(this).val() + "%")
+        }
+    }
+}
+slider()
+
 $(".add-element").click(function () {
     const element = $(this).attr("data-class")
     const xhr = new XMLHttpRequest()
@@ -25,6 +40,7 @@ $(".add-element").click(function () {
     xhr.open("GET", "/editors/cv-2.html", true)
     xhr.send()
 })
+
 
 function addElement(element) {
     let classElement
@@ -94,7 +110,10 @@ function addElement(element) {
             break
         case "education":
             classElement = `<div class="education cv-main-right-item editable">
-                <div class="title">Học vấn</div>
+                <div class="title">
+                    <i class="fas fa-graduation-cap dark-color-icon"></i>
+                    Học vấn
+                </div>
                 <ul>
                     <li>Trình độ: Sinh viên năm 3</li>
                     <li>Trường: Đại học Tôn Đức Thắng</li>
@@ -111,7 +130,10 @@ function addElement(element) {
             break
         case "award":
             classElement = ` <div class="award cv-main-right-item editable">
-                <div class="title">Giải thưởng</div>
+                <div class="title">
+                    <i class="fas fa-award dark-color-icon"></i>
+                    Giải thưởng
+                </div>
                 <ul>
                     <li>Giải nhì: Cuộc thi nét đẹp sinh viên</li>
                     <li>Giải nhì: Cuộc thi học thuật</li>
@@ -121,7 +143,10 @@ function addElement(element) {
             break
         case "skill":
             classElement = ` <div class="skill cv-main-right-item editable">
-                <div class="title">Kỹ năng</div>
+                <div class="title">
+                    <i class="fas fa-lightbulb dark-color-icon"></i>
+                    Kỹ năng
+                </div>
                 <ul id="content-skill">
                     <li>
                         <span>HTML</span>
@@ -144,7 +169,10 @@ function addElement(element) {
             break
         case "experience":
             classElement = `<div class="experience cv-main-right-item editable">
-                <div class="title">Kinh nghiệm làm việc</div>
+                <div class="title">
+                    <i class="fas fa-briefcase dark-color-icon"></i>
+                    Kinh nghiệm làm việc
+                </div>
                 <ul>
                     <li>Tháng 2/2021- 6/2021: Thực tập tại
                         công ty FPT.
@@ -159,6 +187,7 @@ function addElement(element) {
             break
     }
 }
+
 
 function addNameElement() {
     let element = document.getElementsByClassName("cv-header-name-group")
@@ -214,21 +243,6 @@ function addSkill() {
     xhr.send()
 }
 
-function slider() {
-    for (let i = 1; i <= $("#content-skill").children().length; i++) {
-        let oldValue = $("#slider-" + i).val()
-        $("#slider-" + i).css("background", `linear-gradient(to right, #737373 0%, #737373 ${oldValue}%, #494F56 ${oldValue}%, #494F56 100%)`)
-        $(".slider").attr("contenteditable", "false")
-        $(".slider-value").attr("contenteditable", "false")
-        let slider = document.getElementById("slider-" + i)
-        slider.oninput = function () {
-            let value = (this.value - this.min) / (this.max - this.min) * 100
-            this.style.background = 'linear-gradient(to right, #737373 0%, #737373 ' + value + '%, #494F56 ' + value + '%, #494F56 100%)'
-            $("#slider-value-" + i).html($(this).val() + "%")
-        }
-    }
-}
-slider()
 
 function displayPlusIcon() {
     $(".skill").focus(e => {
@@ -264,8 +278,6 @@ function displayPlusIcon() {
 }
 
 displayPlusIcon()
-
-
 
 function addActivity() {
     let activity = document.createElement("li")
