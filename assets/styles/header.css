@@ -107,7 +107,7 @@
 }
 
 .template-item.active {
-    transform: scale(1.01, 1.1);
+    transform: scale(1.1, 1.1);
     border: 3px solid #0c98c7;
 }
 
