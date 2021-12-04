@@ -93,7 +93,7 @@ function addSkill() {
     xhr.onload = function () {
         slider()
     }
-    xhr.open("GET", "/editors/cv-1.html", true)
+    xhr.open("GET", "cv-1.html", true)
     xhr.send()
 }
 
@@ -154,7 +154,7 @@ $(".add-element").click(function () {
         displayPlusIcon()
         slider()
     }
-    xhr.open("GET", "/editors/cv-1.html", true)
+    xhr.open("GET", "cv-1.html", true)
     xhr.send()
 })
 
@@ -413,3 +413,25 @@ $(".editable").keydown(function () {
     loadMargin()
     setCvHeight()
 })
+
+function marginTopElement(element) {
+    if ($("." + element).length > 0) {
+        const xhr = new XMLHttpRequest()
+        xhr.onload = function () {
+            const a4Height = 1135.66
+            const topCv = $("#cv").offset().top
+            const cssMarginTop = parseInt($("." + element).css("margin-top"))
+            const topElement = $("." + element).offset().top - topCv - cssMarginTop
+            const rect = document.querySelector("." + element).getBoundingClientRect()
+            const bottomElement = rect.height + topElement
+            const mT = a4Height - topElement
+            if (topElement < a4Height && bottomElement > (a4Height - 16)) {
+                marginTop(element, mT)
+            } else {
+                marginTop(element, 0)
+            }
+        }
+        xhr.open("GET", "cv-1.html", true)
+        xhr.send()
+    }
+}

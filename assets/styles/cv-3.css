@@ -186,6 +186,35 @@
     order: 4; 
 }
 
+
+:is(#content-education, #content-experience) > li {
+    list-style: none;
+    margin-left: 0;
+}
+
+:is(#content-education, #content-experience) .school {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+:is(#content-education, #content-experience) .school span,
+:is(#content-education, #content-experience) .school b,
+:is(#content-education, #content-experience) .school i,
+:is(#content-education, #content-experience) .school u {
+    font-size: 1.6rem;
+}
+
+:is(#content-education, #content-experience) .time {
+    font-size: 1.2rem;
+}
+
+:is(#content-education, #content-experience) .time span,
+:is(#content-education, #content-experience) .time b,
+:is(#content-education, #content-experience) .time i,
+:is(#content-education, #content-experience) .time u {
+    font-size: 1.2rem;
+}
+
 .cv-main-left-item:first-child {
     margin-top: 0px;
 }
@@ -303,7 +332,7 @@
 }
 
 .cv-main-right-item {
-    margin: 10px 0;
+    margin: 16px 0;
 }
 
 .cv-main-right-item:first-child {
@@ -379,7 +408,7 @@
     outline: 1px dashed #505C69;
 }
 
-.editor-controller, .add-skill, .add-activity {
+.editor-controller, .add-skill, .add-activity, .add-experience, .add-education  {
     position: relative;
 }
 
@@ -396,7 +425,7 @@
     z-index: 1;
 }
 
-.add-skill .fa-plus, .add-activity .fa-plus {
+.add-skill .fa-plus, .add-activity .fa-plus, .add-experience .fa-plus, .add-education .fa-plus {
     position: absolute;
     top: calc(50% - 7px);
     left: -16px;
@@ -409,3 +438,35 @@
     z-index: 1;
 }
 
+.modal-full {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-full h1 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #fff;
+    user-select: none;
+    text-align: center;
+    margin: 0 20px;
+}
+
+@media screen and (max-width: 1199px) {
+    .modal-full {
+        display: flex;
+    }
+
+    body {
+        overflow: hidden;
+    }
+}
