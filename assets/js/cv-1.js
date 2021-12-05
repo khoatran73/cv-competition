@@ -408,7 +408,7 @@ function loadMargin() {
     }
 }
 
-loadMargin()
+// loadMargin()
 $(".editable").keydown(function () {
     loadMargin()
     setCvHeight()

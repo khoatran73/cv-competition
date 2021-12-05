@@ -116,6 +116,11 @@ function execCommandWithValue(command, value) {
     document.execCommand(command, false, value)
 }
 
+$(document).on('scroll', function () {
+    loadMargin()
+    setCvHeight()
+})
+
 // Display trash icon
 handleTrashIcon()
 function handleTrashIcon() {
