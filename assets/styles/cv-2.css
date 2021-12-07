@@ -435,6 +435,10 @@
     z-index: 1;
 }
 
+.editor-controller .fa-trash-alt:hover {
+    color: rgba(216, 50, 60, 0.9);
+}
+
 .add-skill .fa-plus, .add-activity .fa-plus, .add-experience .fa-plus, .add-education .fa-plus {
     position: absolute;
     top: calc(50% - 7px);
