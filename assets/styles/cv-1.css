@@ -67,7 +67,7 @@
     max-height: 320px;
 }
 
-.cv-header .cv-header-img label {
+#upload-img {
     position: absolute;
     width: 30px;
     height: 30px;
@@ -77,10 +77,12 @@
     background-color: #3A3B3C;
     border-radius: 50%;
     padding: 8px;   
-    display: none;
     align-items: center;
     justify-content: center;
     margin-bottom: 0;
+    visibility: hidden;
+    transition: all 0.2s;
+    transition-delay: 0.2s;
 }   
 
 #upload-img i {
@@ -89,7 +91,7 @@
 }
 
 .cv-header .cv-header-img:hover #upload-img {
-    display: flex;
+    visibility: visible;
 }
 
 .cv-header-name-group {
@@ -371,6 +373,8 @@
 
 .editor-controller .fa-trash-alt:hover {
     color: rgba(216, 50, 60, 0.9);
+    transition: 0.25s;
+    transition-delay: 0.1s;
 }
 
 .add-skill .fa-plus, .add-experience .fa-plus, .add-education .fa-plus {
