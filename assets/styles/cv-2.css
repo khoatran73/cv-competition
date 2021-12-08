@@ -432,29 +432,35 @@
     -webkit-user-modify: none;
     -moz-user-modify: none;
     cursor: pointer;
-    font-size: 1.4rem;
-    color: #666;
+    font-size: 1.6rem;
+    color: #ED5565;
     z-index: 1;
 }
 
 .editor-controller .fa-trash-alt:hover {
-    color: rgba(216, 50, 60, 0.9);
+    color: #e92a3d;
     transition: 0.25s;
     transition-delay: 0.1s;
 }
 
-.add-skill .fa-plus, .add-activity .fa-plus, .add-experience .fa-plus, .add-education .fa-plus {
+.add-skill .fa-plus-circle, .add-activity .fa-plus-circle, .add-experience .fa-plus-circle, .add-education .fa-plus-circle {
     position: absolute;
     top: calc(50% - 7px);
-    left: -16px;
+    left: -18px;
     font-size: 1.6rem;
-    color: #666;
+    color: #00B14F;
     -user-modify: none;
     -webkit-user-modify: none;
     -moz-user-modify: none;
     user-select: none;
     cursor: pointer;
     z-index: 1;
+}
+
+.fa-plus-circle:hover {
+    color: #05833d;
+    transition: 0.25s;
+    transition-delay: 0.1s;
 }
 
 

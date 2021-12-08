@@ -35,7 +35,7 @@ function displayPlusIcon() {
 
         element.classList.add("add-skill")
         plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
+        plusIcon.classList.add("fa-plus-circle")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => addSkill())
@@ -49,7 +49,7 @@ function displayPlusIcon() {
 
         element.classList.add("add-experience")
         plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
+        plusIcon.classList.add("fa-plus-circle")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -66,7 +66,7 @@ function displayPlusIcon() {
 
         element.classList.add("add-education")
         plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
+        plusIcon.classList.add("fa-plus-circle")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {

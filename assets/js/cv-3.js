@@ -52,7 +52,8 @@ function addElement(element) {
             classElement = `<div class="cv-main-left-item contact editable">
                 <div class="title dark-color"><span>Liên Hệ</span></div>
                 <ul>
-                    <li class="address">Địa chỉ: 903 Trần Xuân Soạn</li>
+                    <li class="address">Địa chỉ: 903 Trần Xuân Soạn, p. Tân Phong, quận 7, TP Hồ Chí
+                        Minh</li>
                     <li class="phone">SĐT: 012345678</li>
                     <li class="email">Email: baovy@gmail.com</li>
                     <li class="github">Github: baovy@nodejs_vivian</li>
@@ -79,15 +80,15 @@ function addElement(element) {
         case "activity":
             classElement = `<div class="cv-main-left-item activity editable">
                 <div class="title dark-color"><span>Hoạt động</span></div>
-                <ul>
-                    <li>
+                <ul id="content-activity">
+                    <li class="activity-1">
                         <div class="header">THÁNG 7/2020</div>
                         <div class="content">MÙA HÈ XANH: Làm việc teamwork,
                             phát gạo cho người dân, dọn cỏ và sinh
                             hoạt ở nhà văn hoá
                         </div>
                     </li>
-                    <li>
+                    <li class="activity-2">
                         <div class="header">THÁNG 11/2020</div>
                         <div class="content">LEADER FLY: Dự án được thực hiện dự
                             trên sự quản lí tài chính của cá nhân
@@ -95,7 +96,7 @@ function addElement(element) {
                             chiếc lược cho content
                         </div>
                     </li>
-                    <li>
+                    <li class="activity-3">
                         <div class="header">THÁNG 1/2021</div>
                         <div class="content">
                             XUÂN TÌNH NGUYỆN: Phát quà xuân
@@ -104,24 +105,59 @@ function addElement(element) {
                             động ca hát.
                         </div>
                     </li>
+                    <li class="activity-4">
+                        <div class="header">THÁNG 6/2021</div>
+                        <div class="content">
+                            HỔ TRỢ COVID 19: Tham gia hỗ trợ phòng chống dịch Covid 19.
+                        </div>
+                    </li>
                 </ul>
             </div>`
             addCvMainLeftElement("activity", classElement)
             break
         case "education":
-            classElement = `<div class="education cv-main-right-item editable">
-                <div class="title">
+            classElement = `<div class="cv-main-right-item education editable">
+                <div class="title education-1">
                     <i class="fas fa-graduation-cap dark-color-icon"></i>
                     Học vấn
                 </div>
-                <ul>
-                    <li>Trình độ: Sinh viên năm 3</li>
-                    <li>Trường: Đại học Tôn Đức Thắng</li>
-                    <li>
-                        Ngoại ngữ:
-                        <ul>
-                            <li>Tiếng Anh: IELTS 7.0</li>
-                            <li>Tiếng Trung: HSK 5</li>
+                <ul id="content-education" class="light-color">
+                    <li class="education-2">
+                        <div class="school">
+                            Đại học Tôn Đức Thắng
+                        </div>
+                        <div class="time">
+                            2019 - nay
+                        </div>
+                        <ul class="light-color">
+                            <li>
+                                Xếp loại: Khá
+                            </li>
+                            <li>
+                                Điểm tích lũy: 7.8/10.0
+                            </li>
+                            <li>
+                                Hệ chính quy
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="education-3">
+                        <div class="school">
+                            THPT Lê Thành Phương
+                        </div>
+                        <div class="time">
+                            2016 - 2019
+                        </div>
+                        <ul class="light-color">
+                            <li>
+                                Xếp loại: Giỏi
+                            </li>
+                            <li>
+                                Điểm tích lũy: 8.9/10
+                            </li>
+                            <li>
+                                Hệ chính quy
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -129,37 +165,37 @@ function addElement(element) {
             addCvMainRightElement("education", classElement)
             break
         case "award":
-            classElement = ` <div class="award cv-main-right-item editable">
+            classElement = `<div class="cv-main-right-item award editable">
                 <div class="title">
                     <i class="fas fa-award dark-color-icon"></i>
                     Giải thưởng
                 </div>
-                <ul>
-                    <li>Giải nhì: Cuộc thi nét đẹp sinh viên</li>
-                    <li>Giải nhì: Cuộc thi học thuật</li>
+                <ul class="light-color">
+                    <li>2020: Giải nhất Hackathon</li>
+                    <li>2019: Giả ba thiết kế website với Wix.com</li>
                 </ul>
             </div>`
             addCvMainRightElement("award", classElement)
             break
         case "skill":
-            classElement = ` <div class="skill cv-main-right-item editable">
+            classElement = `<div class="cv-main-right-item skill editable">
                 <div class="title">
                     <i class="fas fa-lightbulb dark-color-icon"></i>
                     Kỹ năng
                 </div>
-                <ul id="content-skill">
+                <ul id="content-skill" class="light-color">
                     <li>
-                        <span>HTML</span>
+                        <span>Làm việc nhóm</span>
                         <input class="slider" type="range" min="1" max="100" value="20" id="slider-1">
                         <span id="slider-value-1" class="slider-value">20%</span>
                     </li>
                     <li>
-                        <span>CSS</span>
+                        <span>Tự học</span>
                         <input class="slider" type="range" min="1" max="100" value="20" id="slider-2">
                         <span id="slider-value-2" class="slider-value">20%</span>
                     </li>
                     <li>
-                        <span>JavaScript</span>
+                        <span>Quản lý thời gian</span>
                         <input class="slider" type="range" min="1" max="100" value="20" id="slider-3">
                         <span id="slider-value-3" class="slider-value">20%</span>
                     </li>
@@ -168,24 +204,65 @@ function addElement(element) {
             addCvMainRightElement("skill", classElement)
             break
         case "experience":
-            classElement = `<div class="experience cv-main-right-item editable">
-                <div class="title">
+            classElement = ` <div class="cv-main-right-item experience editable">
+                <div class="title experience-1">
                     <i class="fas fa-briefcase dark-color-icon"></i>
                     Kinh nghiệm làm việc
                 </div>
-                <ul>
-                    <li>Tháng 2/2021- 6/2021: Thực tập tại
-                        công ty FPT.
+                <ul class="light-color" id="content-experience">
+                    <li class="experience-2">
+                        <div class="school">
+                            Công ty TNHH Phần mềm FPT
+                        </div>
+                        <div class="time">
+                            Thực tập Lập trình Fontend | 6/2020 - nay
+                        </div>
+                        <ul>
+                            <li>
+                                Hỗ trợ các anh chị trong team Frontend
+                            </li>
+                            <li>
+                                Làm việc với Tester
+                            </li>
+                            <li>
+                                Hoàn thành tốt các công việc được giao
+                            </li>
+                            <li>
+                                Tháng 12/2020 đạt giải nhân viên của tháng
+                            </li>
+                            <li>
+                                Tháng 5/2021 trở thành nhân viên chính thức
+                            </li>
+                        </ul>
                     </li>
-                    <li>Tháng 7/2021 - 9/2021: Làm việc tại
-                        công ty Shopee.</li>
-                    <li>Tháng 10/2021 - hiện tại: Làm việc
-                        tại công ty Alta Softwave.</li>
+                    <li class="experience-3">
+                        <div class="school">
+                            Shopee
+                        </div>
+                        <div class="time">
+                            Nhân viên BA | 10/2019 - 5/2020
+                        </div>
+                        <ul>
+                            <li>
+                                Xây dựng hệ thống cho team Dev code
+                            </li>
+                            <li>
+                                Làm việc, lấy ý kiến của khách hàng
+                            </li>
+                            <li>
+                                Quản lý tài liệu cho team
+                            </li>
+                            <li>
+                                Hoàn thành tốt các công việc được giao
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>`
             addCvMainRightElement("experience", classElement)
             break
     }
+    loadMargin()
 }
 
 
@@ -251,7 +328,7 @@ function displayPlusIcon() {
 
         element.classList.add("add-skill")
         plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
+        plusIcon.classList.add("fa-plus-circle")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -268,7 +345,7 @@ function displayPlusIcon() {
 
         element.classList.add("add-activity")
         plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
+        plusIcon.classList.add("fa-plus-circle")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -285,7 +362,7 @@ function displayPlusIcon() {
 
         element.classList.add("add-education")
         plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
+        plusIcon.classList.add("fa-plus-circle")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -302,7 +379,7 @@ function displayPlusIcon() {
 
         element.classList.add("add-experience")
         plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus")
+        plusIcon.classList.add("fa-plus-circle")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -368,7 +445,7 @@ function addExperience() {
         </div>
         <ul>
             <li>
-                Hổ trợ các anh chị trong team Frontend
+                Hỗ trợ các anh chị trong team Frontend
             </li>
             <li>
                 Làm việc với Tester

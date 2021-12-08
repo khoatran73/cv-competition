@@ -129,7 +129,7 @@ function handleTrashIcon() {
         const trashIcon = document.createElement("i")
 
         element.classList.add("editor-controller")
-        trashIcon.classList.add("fas")
+        trashIcon.classList.add("far")
         trashIcon.classList.add("fa-trash-alt")
         element.appendChild(trashIcon)
 
@@ -169,9 +169,3 @@ formUpload.addEventListener("change", e => {
     })
     loadMargin()
 })
-
-
-
-
-
-
