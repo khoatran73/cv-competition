@@ -363,7 +363,7 @@ function addElement(element) {
 function addNameElement() {
     let element = document.getElementsByClassName("cv-header-name-group")
     if (element.length > 0) {
-        alert("Không thể thêm một thành phần đã có")
+        swal("Oops...", "Không thể thêm một thành phần đã có!!!", "error")
         return
     }
 
@@ -379,7 +379,7 @@ function addNameElement() {
 function addCvMainLeftElement(className, classElement) {
     let element = document.getElementsByClassName(className)
     if (element.length > 0) {
-        alert("Không thể thêm một thành phần đã có")
+        swal("Oops...", "Không thể thêm một thành phần đã có!!!", "error")
         return
     }
 
@@ -389,7 +389,7 @@ function addCvMainLeftElement(className, classElement) {
 function addCvMainRightElement(className, classElement) {
     let element = document.getElementsByClassName(className)
     if (element.length > 0) {
-        alert("Không thể thêm một thành phần đã có")
+        swal("Oops...", "Không thể thêm một thành phần đã có!!!", "error")
         return
     }
 
@@ -420,7 +420,7 @@ function marginTopElement(element) {
         xhr.onload = function () {
             const a4Height = 1135.66
             const topCv = $("#cv").offset().top
-            const cssMarginTop = parseInt($("." + element).css("margin-top"))
+            const cssMarginTop = parseInt($("." + element).css("margin-top")) + 2
             const topElement = $("." + element).offset().top - topCv - cssMarginTop
             const rect = document.querySelector("." + element).getBoundingClientRect()
             const bottomElement = rect.height + topElement

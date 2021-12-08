@@ -5,7 +5,7 @@ download.addEventListener("click", e => exportHtml2Pdf(e))
 const exportHtml2Pdf = (e) => {
     if (window.pageYOffset > 0) {
         e.preventDefault()
-        alert("Vui lòng Scroll lên đầu trang để tải CV")
+        swal("Oops...", "Vui lòng Scroll lên đầu trang để tải CV!!!", "error")
         return
     }
     const fileName = document.querySelector("#file-name")
@@ -70,7 +70,7 @@ function enableEditable() {
 $("#file-name").keypress(function (e) {
     if (e.which == 13) {
         e.preventDefault()
-        alert("Tên CV chỉ được viết trên một dòng")
+        swal("Oops...", "Tên của CV chỉ được viết trên một dòng!!!", "error")
     }
 })
 
@@ -157,7 +157,7 @@ formUpload.addEventListener("change", e => {
     const files = e.target.files
     files.forEach(file => {
         if (!file.type.startsWith("image/")) {
-            alert("Chỉ được upload ảnh!!")
+            swal("Oops...", "Chỉ được upload ảnh!!!", "error")
             return
         }
 

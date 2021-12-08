@@ -192,7 +192,7 @@ function addElement(element) {
 function addNameElement() {
     let element = document.getElementsByClassName("cv-header-name-group")
     if (element.length > 0) {
-        alert("Không thể thêm một thành phần đã có")
+        swal("Oops...", "Không thể thêm một thành phần đã có!!!", "error")
         return
     }
 
@@ -208,7 +208,7 @@ function addNameElement() {
 function addCvMainLeftElement(className, classElement) {
     let element = document.getElementsByClassName(className)
     if (element.length > 0) {
-        alert("Không thể thêm một thành phần đã có")
+        swal("Oops...", "Không thể thêm một thành phần đã có!!!", "error")
         return
     }
 
@@ -218,7 +218,7 @@ function addCvMainLeftElement(className, classElement) {
 function addCvMainRightElement(className, classElement) {
     let element = document.getElementsByClassName(className)
     if (element.length > 0) {
-        alert("Không thể thêm một thành phần đã có")
+        swal("Oops...", "Không thể thêm một thành phần đã có!!!", "error")
         return
     }
 
