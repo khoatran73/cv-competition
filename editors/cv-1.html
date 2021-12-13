@@ -72,11 +72,12 @@
                                 <div class="bold style-item"><i class="fas fa-bold"></i></div>
                                 <div class="italic style-item"><i class="fas fa-italic"></i></div>
                                 <div class="underline style-item"><i class="fas fa-underline"></i></div>
-                                <!-- <div class="list-ul style-item"><i class="fas fa-list-ul"></i></div> -->
                                 <div class="align-right style-item"><i class="fas fa-align-right"></i></div>
                                 <div class="align-center style-item"><i class="fas fa-align-center"></i></div>
                                 <div class="align-left style-item"><i class="fas fa-align-left"></i></div>
                                 <div class="align-justify style-item"><i class="fas fa-align-justify"></i></div>
+                                <div title="Link" class="link style-item"><i class="fas fa-link"></i></div>
+                                <div title="Unlink" class="unlink style-item"><i class="fas fa-unlink"></i></div>
                                 <div title="Add a section" class="style-item" id="add-element" data-toggle="modal"
                                     data-target="#modal-add"><i class="fas fa-plus"></i></div>
                             </div>
@@ -134,18 +135,18 @@
                             </div>
                             <div class="cv-main-left-item contact editable">
                                 <div class="title">Contact information</div>
-                                <div class="content">
+                                <div class="content" id="contact-content">
                                     <div class="address">
-                                        <i class="fas fa-map-marker-alt  dark-color"></i>
+                                        <i class="fas fa-home dark-color"></i>
                                         Number 19, Nguyen Huu Tho Street, Tân Phong Ward, District 7, HCMC
                                     </div>
-                                    <div class="address">
+                                    <div class="phone">
                                         <i class="fas fa-phone-alt dark-color"></i>
-                                        01293213123
+                                        0865998764
                                     </div>
                                     <div class="email">
                                         <i class="fas fa-envelope  dark-color"></i>
-                                        baovy@gmail.com
+                                        hongngoc@gmail.com
                                     </div>
                                 </div>
                             </div>
@@ -163,10 +164,6 @@
                                     <div>
                                         <span>Communication</span>
                                         <input class="slider" type="range" min="1" max="100" value="20" id="slider-3">
-                                    </div>
-                                    <div>
-                                        <span>Time Management</span>
-                                        <input class="slider" type="range" min="1" max="100" value="20" id="slider-4">
                                     </div>
                                 </div>
                             </div>
@@ -311,12 +308,11 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-        aria-hidden="true">
+    <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Add Section</h5>
+                    <h5 class="modal-title">Add Section</h5>
                 </div>
                 <div class="modal-body">
                     <div class="element">
@@ -367,6 +363,61 @@
                                 <i class="fa fa-plus"></i>
                             </div>
                             <span>Work Experience</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Contact</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="element">
+                        <div class="element">
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="address">
+                                <div class="add-element">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                Address
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="phone">
+                                <div class="add-element">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                Phone
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="email">
+                                <div class="add-element">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                Email
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="github">
+                                <div class="add-element">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                Github
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="linkedin">
+                                <div class="add-element">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                Linkedin
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="website">
+                                <div class="add-element">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                Website
+                            </div>
                         </div>
                     </div>
                 </div>

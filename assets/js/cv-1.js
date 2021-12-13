@@ -28,7 +28,35 @@ function slider() {
 }
 slider()
 
+function removePlusIcon(e) {
+    let element = e.target
+    let listChild = element.childNodes
+
+    // element.removeChild(listChild[listChild.length - 2])
+    element.removeChild(listChild[listChild.length - 1])
+}
+
 function displayPlusIcon() {
+    $(".contact").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-contact")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus-circle")
+        plusIcon.classList.add("open-contact-modal")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => {
+            $(".open-contact-modal").attr("data-toggle", "modal")
+            $(".open-contact-modal").attr("data-target", "#contact-modal")
+            checkContactItem()
+        })
+    })
+
+    $(".contact").focusout(e => removePlusIcon(e))
+
+
     $(".skill").focus(e => {
         const element = e.target
         const plusIcon = document.createElement("i")
@@ -41,7 +69,7 @@ function displayPlusIcon() {
         plusIcon.addEventListener("click", () => addSkill())
     })
 
-    $(".skill").focusout(() => $(".skill").removeClass("add-skill"))
+    $(".skill").focusout(e => removePlusIcon(e))
 
     $(".experience").focus(e => {
         const element = e.target
@@ -58,7 +86,7 @@ function displayPlusIcon() {
         })
     })
 
-    $(".experience").focusout(() => $(".experience").removeClass("add-experience"))
+    $(".experience").focusout(e => removePlusIcon(e))
 
     $(".education").focus(e => {
         const element = e.target
@@ -75,7 +103,7 @@ function displayPlusIcon() {
         })
     })
 
-    $(".education").focusout(() => $(".education").removeClass("add-education"))
+    $(".education").focusout(e => removePlusIcon(e))
 }
 
 displayPlusIcon()
@@ -121,7 +149,7 @@ function addExperience() {
 
 function addEducation() {
     let education = document.createElement("li")
-    let id = parseInt($("#content-experience").children().length) + 2
+    let id = parseInt($("#content-education").children().length) + 2
     education.innerHTML =
         `<div class="school">
             Pha Lai high school
@@ -142,6 +170,39 @@ function addEducation() {
 
     document.getElementById("content-education").appendChild(education)
 }
+
+function checkSection(className) {
+    const element = document.querySelector(`.${className}`)
+    if (element) {
+        const addElement = $(`.add-element[data-class=${className}]`)?.parent()[0]
+        addElement.style.backgroundColor = "#A8D0E6"
+    } else {
+        const addElement = $(`.add-element[data-class=${className}]`)?.parent()[0]
+        addElement.style.backgroundColor = "#fff"
+    }
+}
+
+function checkSections() {
+    const element = document.querySelector(".cv-header-name-group")
+    if (element) {
+        const addElement = $(`.add-element[data-class="name"]`)?.parent()[0]
+        addElement.style.backgroundColor = "#A8D0E6"
+    } else {
+        const addElement = $(`.add-element[data-class="name"]`)?.parent()[0]
+        addElement.style.backgroundColor = "#fff"
+    }
+    checkSection("introduce")
+    checkSection("contact")
+    checkSection("skill")
+    checkSection("certification")
+    checkSection("hobby")
+    checkSection("education")
+    checkSection("experience")
+}
+
+$("#add-element").click(function() {
+    checkSections()
+}) 
 
 $(".add-element").click(function () {
     const element = $(this).attr("data-class")
@@ -175,19 +236,19 @@ function addElement(element) {
             break
         case "contact":
             classElement = `<div class="cv-main-left-item contact editable">
-                <div class="title">Contact</div>
-                <div class="content">
+                <div class="title">Contact information</div>
+                <div class="content" id="contact-content">
                     <div class="address">
-                        <i class="fas fa-map-marker-alt  dark-color"></i>
+                        <i class="fas fa-home dark-color"></i>
                         Number 19, Nguyen Huu Tho Street, Tân Phong Ward, District 7, HCMC
                     </div>
-                    <div class="address">
+                    <div class="phone">
                         <i class="fas fa-phone-alt dark-color"></i>
-                        01293213123
+                        0865998764
                     </div>
                     <div class="email">
                         <i class="fas fa-envelope  dark-color"></i>
-                        baovy@gmail.com
+                        hongngoc@gmail.com
                     </div>
                 </div>
             </div>`
@@ -368,9 +429,9 @@ function addNameElement() {
     }
 
     let classElement = `
-        <div class="cv-header-name-group editable">
-            <div class="name">Nguyen Tran Bao Vy</div>
-            <div class="position">Frontend Developer</div>
+        <div class="cv-header-name-group editable light-color">
+            <div class="name">Nguyen Hong Ngoc</div>
+            <div class="position">IoT Developer Intern</div>
         </div>`
 
     $(".cv-header").append(classElement)
@@ -404,26 +465,27 @@ function loadMargin() {
     marginTopElement("certification")
     marginTopElement("hobby")
     for (let i = 1; i <= 10; i++) {
+        marginTopElement("education-" + i)
         marginTopElement("experience-" + i)
     }
 }
 
-// loadMargin()
+loadMargin()
 $(".editable").keydown(function () {
     loadMargin()
     setCvHeight()
 })
 
 function marginTopElement(element) {
-    if ($("." + element).length > 0) {
+    if ($("." + element)?.length > 0) {
         const xhr = new XMLHttpRequest()
         xhr.onload = function () {
             const a4Height = 1135.66
-            const topCv = $("#cv").offset().top
+            const topCv = $("#cv").offset()?.top
             const cssMarginTop = parseInt($("." + element).css("margin-top")) + 2
-            const topElement = $("." + element).offset().top - topCv - cssMarginTop
+            const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
             const rect = document.querySelector("." + element).getBoundingClientRect()
-            const bottomElement = rect.height + topElement
+            const bottomElement = rect?.height + topElement
             const mT = a4Height - topElement
             if (topElement < a4Height && bottomElement > (a4Height - 16)) {
                 marginTop(element, mT)
@@ -435,3 +497,61 @@ function marginTopElement(element) {
         xhr.send()
     }
 }
+
+
+function checkContactItem() {
+    const contactContent = document.getElementById("contact-content")
+    const contactData = []//["address", "phone", "email", "github", "linkedin", "website"]
+    contactContent.children.forEach(child => {
+        const className = child?.classList[0]
+        contactData.push(className)
+    })
+
+    document.querySelectorAll(".add-contact-item").forEach(contactItem => {
+        const dataClass = contactItem.dataset.class
+        if (contactData.includes(dataClass)) {
+            contactItem.style.backgroundColor = "#A8D0E6"
+        } else {
+            contactItem.style.backgroundColor = "#fff"
+        }
+    })
+}
+
+$(".add-contact-item").click(function () {
+    const dataClass = $(this).attr("data-class")
+    if ($("." + dataClass).length > 0) {
+        swal("Oops...", dataClass + " đã có rồi", "error")
+        return
+    }
+
+    const helper = {
+        "address": `<div class="address">
+                <i class="fas fa-home dark-color"></i>
+                Number 19, Nguyen Huu Tho Street, Tân Phong Ward, District 7, HCMC
+            </div>`,
+        "phone": `<div class="phone">
+                <i class="fas fa-phone-alt dark-color"></i>
+                0865998764
+            <div>`,
+        "email": `<div class="email">
+                <i class="fas fa-envelope dark-color"></i>
+                hongngoc@gmail.com
+            <div>`,
+        "github": `<div class="github">
+                <i class="fab fa-github dark-color"></i>
+                hongngoc
+            </div>`,
+        "linkedin": `<div class="linkedin">
+                <i class="fab fa-linkedin dark-color"></i>
+                Nguyễn Hồng Ngọc
+            </div>`,
+        "website": `<div class="website">
+                <i class="fas fa-globe dark-color"></i>
+                Facebook
+            </div>`
+    }
+
+    const element = helper[dataClass]
+
+    $("#contact-content").append(element)
+})

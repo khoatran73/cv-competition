@@ -486,9 +486,9 @@ function marginTopElement(element) {
             const a4Height = 1135.66
             const topCv = $("#cv").offset().top
             const cssMarginTop = parseInt($("." + element).css("margin-top"))
-            const topElement = $("." + element).offset().top - topCv - cssMarginTop
-            const rect = document.querySelector("." + element).getBoundingClientRect()
-            const bottomElement = rect.height + topElement
+            const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
+            const rect = document.querySelector("." + element)?.getBoundingClientRect()
+            const bottomElement = rect?.height + topElement
             const mT = a4Height - topElement
             if (topElement < a4Height && bottomElement > (a4Height - 16)) {
                 marginTop(element, mT)

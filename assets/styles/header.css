@@ -261,8 +261,16 @@
     font-family: "Open Sans", sans-serif;
 }
 
+.modal-header {
+    justify-content: center;
+    align-items: center;
+}
+
 .modal-header .modal-title {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
+    color: #152D35;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .modal-body {
@@ -275,7 +283,7 @@
 }
 
 .modal-body .element .element-item {
-    font-size: 2.8rem;
+    font-size: 1.8rem;
     background-color: #fff;
     margin: 10px 10px 0 10px;
     display: flex;
@@ -290,8 +298,8 @@
 }
 
 .modal-body .element .element-item .check {
-    font-size: 2.8rem;
-    background-color: #ccc;
+    font-size: 2.4rem;
+    background-color: #152D35;
     color: #fff;
     width: 2.4rem;
     height: 2.4rem;
@@ -300,23 +308,26 @@
     justify-content: center;
     cursor: pointer;
     border-radius: 3px;
-    transition: all 0.3s;
+    transition: ease-in-out 0.3s;
+    transition-delay: 0.2s;
 }
 
 .modal-body .element .element-item .check:hover {
-    background-color: #999;
+    background-color: #367486;
 }
 
 .modal-body .element .element-item span {
+    font-size: 1.8rem;
     margin-left: 16px;
     user-select: none;
+    color: #152D35;
 }
 
 .modal-footer button {
     font-size: 1.6rem;
     outline: none;
-    padding: 4px 12px;
-    background-color: #000;
+    padding: 4px 18px;
+    background-color: #152D35;
 }
 
 ::-webkit-scrollbar {
@@ -342,15 +353,21 @@
 }
 
 #file-name {
-    font-size: 2.0rem;
+    font-size: 2.4rem;
     color: var(--white-color);
     width: 70%;
     text-align: center;
 }
 
 #file-name:focus {
+    background-color: rgba(255, 255, 255, 1);
+    color: #000;
     border: none;
-    outline: 1px dashed #505C69;
+    outline: 1px solid #ccc;
+    box-shadow: 20px 0 0px 4px #f4f5f5, -20px 0 0 4px #f4f5f5;
+    z-index: 1;
+    border-radius: 0.1px;
+    color: #152D35;
 }
 
 #file-name b,
@@ -358,11 +375,33 @@
 #file-name u,
 #file-name span,
 #file-name i {
-    font-size: 2.0rem;
+    font-size: 2.4rem;
 }
 
 .cv-name .container p {
     font-size: 1.4rem;
     margin-top: 10px;
     color: rgb(197, 197, 197);
+}
+
+#contact-modal .element-item {
+    color: #152D35;
+    background-color: #fff;
+}
+
+#contact-modal .element-item:hover {
+    background-color: #152D35 !important;
+    cursor: pointer !important;
+    transition: ease-in-out 0.3s !important;
+    transition-delay: 0.2s !important;
+    color: #fff !important; 
+}
+
+#contact-modal .element-item i {
+    font-size: 1.8rem;
+    margin-right: 16px;
+}
+
+.swal-text {
+    font-size: 2.0rem;
 }

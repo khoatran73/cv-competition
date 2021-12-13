@@ -34,21 +34,21 @@ function setCvHeight() {
     const cvMainLeft = document.querySelector(".cv-main-left")
     const cvMainRight = document.querySelector(".cv-main-right")
 
-    const childClassLeft = cvMainLeft.children[cvMainLeft.children.length - 1].classList[1]
-    const childClassRight = cvMainRight.children[cvMainRight.children.length - 1].classList[1]
+    const childClassLeft = cvMainLeft?.children[cvMainLeft.children.length - 1]?.classList[1]
+    const childClassRight = cvMainRight?.children[cvMainRight.children.length - 1]?.classList[1]
 
     const childLeft = document.querySelector("." + childClassLeft)
     const childRight = document.querySelector("." + childClassRight)
 
-    const rectLeft = childLeft.getBoundingClientRect()
-    const rectRight = childRight.getBoundingClientRect()
+    const rectLeft = childLeft?.getBoundingClientRect()
+    const rectRight = childRight?.getBoundingClientRect()
 
     const topCv = $("#cv").offset().top
 
-    const topElementLeft = $("." + childClassLeft).offset().top - topCv
-    const topElementRight = $("." + childClassRight).offset().top - topCv
+    const topElementLeft = $("." + childClassLeft).offset()?.top - topCv
+    const topElementRight = $("." + childClassRight).offset()?.top - topCv
 
-    if ((topElementLeft + rectLeft.height) > 1135.86 || (topElementRight + rectRight.height) > 1135.86) {
+    if ((topElementLeft + rectLeft?.height) > 1135.86 || (topElementRight + rectRight?.height) > 1135.86) {
         if (!$("#cv").hasClass("cv-height"))
             $("#cv").addClass("cv-height")
     } else {
@@ -102,6 +102,14 @@ function userEdit() {
 
     $(".align-left").click(() => execCommand("justifyRight"))
 
+    $(".link").click(() => {
+        execCommandWithValue("createLink", prompt("Enter a link", "https://"))
+    })
+
+    $(".unlink").click(() => {
+        execCommand("unlink")
+    })
+
     $("#font-select").change(() => {
         execCommand("fontSize")
         execCommandWithValue("fontName", $("#font-select").val())
@@ -135,18 +143,39 @@ function handleTrashIcon() {
 
         trashIcon.addEventListener("click", e => {
             removeParent(e)
-            loadMargin()
-            setCvHeight()
         })
     })
 
-    $(".editable").focusout(() => $(".editable").removeClass("editor-controller"))
+    $(".editable").focusout(e => {
+        let element = e.target
+        let listChild = element.childNodes
 
+        // element.removeChild(listChild[listChild.length - 2])
+        element.removeChild(listChild[listChild.length - 1])
+    })
 }
 
 function removeParent(e) {
     const parent = e.target.parentNode
-    parent.remove()
+    swal({
+        title: "DELETE",
+        text: `Delete this Section ?`,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+        .then((willDelete) => {
+            if (willDelete) {
+                parent.remove()
+                loadMargin()
+                setCvHeight()
+                swal("Your section has been deleted!", {
+                    icon: "success",
+                })
+            } else {
+                swal("Your section is safe!");
+            }
+        })
 }
 
 // Upload Image
