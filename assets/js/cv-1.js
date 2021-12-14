@@ -200,9 +200,9 @@ function checkSections() {
     checkSection("experience")
 }
 
-$("#add-element").click(function() {
+$("#add-element").click(function () {
     checkSections()
-}) 
+})
 
 $(".add-element").click(function () {
     const element = $(this).attr("data-class")
@@ -480,7 +480,13 @@ function marginTopElement(element) {
     if ($("." + element)?.length > 0) {
         const xhr = new XMLHttpRequest()
         xhr.onload = function () {
-            const a4Height = 1135.66
+            let a4Height
+            if (!element.includes("experience-") && !element.includes("education-")) {
+                a4Height = 1135.66
+            } else {
+                a4Height = 1135.14
+            }
+            
             const topCv = $("#cv").offset()?.top
             const cssMarginTop = parseInt($("." + element).css("margin-top")) + 2
             const topElement = $("." + element).offset()?.top - topCv - cssMarginTop

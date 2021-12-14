@@ -27,12 +27,9 @@
     width: calc(595px * 1.335);
     min-height: calc(842px * 1.33); 
     background-color: #fff;
-    /* padding: 32px 24px; */
     font-family: "DejaVu", sans-serif;
     position: relative;
-    overflow: hidden;
-    /* display: flex;
-    flex-direction: column; */
+    /* overflow-y: hidden; */
 }
 
 .cv-height {
@@ -52,16 +49,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 36px 0 36px;
+    padding: 24px 50px 0 50px;
 }
 
 .cv-header .cv-header-img {
+    width: 30%;
     position: relative;
 }
 
 .cv-header .cv-header-img img {
-    max-width: 200px; 
-    max-height: 200px;
+    max-width: 100%; 
+    max-height: 100%;
     border-radius: 8px;
     /* border-radius: 50%; */
 }
@@ -94,6 +92,7 @@
 }
 
 .cv-header-name-group {
+    width: 60%;
     max-height: 100px;
     display: flex;
     flex-direction: column;
@@ -110,7 +109,8 @@
 .cv-header-name-group .name font,
 .cv-header-name-group .name u,
 .cv-header-name-group .name i,
-.cv-header-name-group .name span {
+.cv-header-name-group .name span,
+.cv-header-name-group .name a {
     font-size: 3.6rem;
 }
 
@@ -124,18 +124,19 @@
 .cv-header-name-group .position font,
 .cv-header-name-group .position u,
 .cv-header-name-group .position i,
-.cv-header-name-group .position span {
+.cv-header-name-group .position span,
+.cv-header-name-group .position a {
     font-size: 1.6rem;
 }
 
 .cv-main {
     display: flex;
     justify-content: space-between;
-    height: 100%;
+    height: 89.6%;
 }
 
 .cv-main-left {
-    max-width: 300px;
+    width: calc(45% - 0px);
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -148,9 +149,13 @@
 .hobby {
     order: 2; 
  }
+ 
+.award {
+    order: 3; 
+}
 
 .activity {
-    order: 3; 
+    order: 4; 
 }
 
 .cv-main-right {
@@ -162,24 +167,22 @@
     order: 1; 
  }
  
-.award {
-    order: 2; 
-}
- 
 .skill {
-    order: 3; 
+    order: 2; 
 }
 
 .experience {
-    order: 4; 
+    order: 3; 
 }
 
 .cv-main-left-item {
-    margin-left: 18px;
+    padding: 4px 20px 0 20px;
 }
 
 .cv-main-left-item:first-child {
     margin-top: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .cv-main-left-item span {
@@ -188,8 +191,8 @@
 }
 
 .cv-main-left-item .title {
-    width: 260px;
-    min-height: 56px;
+    width: 280px;
+    height: 56px;
     position: relative;
     background-color: #BC85A3;
     display: flex;
@@ -199,16 +202,16 @@
     text-transform: uppercase;
     padding-left: -10px;
     color: #fff;
-    margin-bottom: 10px;
+    /* margin-bottom: 10 */
 }
 
 .cv-main-left-item .title span {
     font-size: 1.8rem;
-    line-height: 1;
+    line-height: 1.34;
     font-weight: 500;
     text-transform: uppercase;
-    padding-right: 26px;
-    padding-left: 26px;
+    padding: 0 36px;
+    margin: 0;
     width: 100%;
     text-align: center;
 }
@@ -216,7 +219,8 @@
 .cv-main-left-item .title b,
 .cv-main-left-item .title font,
 .cv-main-left-item .title u,
-.cv-main-left-item .title i {
+.cv-main-left-item .title i,
+.cv-main-left-item .title a {
     font-size: 1.8rem;
     line-height: 1;
 }
@@ -226,7 +230,7 @@
     width: 56px;
     height: 100%;
     position: absolute;
-    left: -10px;
+    left: -20px;
     top: 0;
     background-color: transparent;
     box-sizing: border-box;
@@ -288,11 +292,17 @@
     /* margin-left: 20px; */
     padding: 4px 0;
 }
+.cv-main-left-item ul {
+    padding: 10px 0;
+    margin-bottom: 0;
+}
+
 
 :is(.cv-main-left-item, .cv-main-right-item) ul li b,
 :is(.cv-main-left-item, .cv-main-right-item) ul li font,
 :is(.cv-main-left-item, .cv-main-right-item) ul li u,
-:is(.cv-main-left-item, .cv-main-right-item) ul li i {
+:is(.cv-main-left-item, .cv-main-right-item) ul li i,
+:is(.cv-main-left-item, .cv-main-right-item) ul li a {
     font-size: 1.4rem;
 }
 
@@ -304,7 +314,8 @@
 :is(.cv-main-left-item, .cv-main-right-item) ul li .header b,
 :is(.cv-main-left-item, .cv-main-right-item) ul li .header font,
 :is(.cv-main-left-item, .cv-main-right-item) ul li .header u,
-:is(.cv-main-left-item, .cv-main-right-item) ul li .header i {
+:is(.cv-main-left-item, .cv-main-right-item) ul li .header i,
+:is(.cv-main-left-item, .cv-main-right-item) ul li .header a {
     font-size: 1.4rem;
 }
 
@@ -312,16 +323,112 @@
     font-size: 1.4rem; 
 }
 
+.contact ul li, .hobby ul li, .award ul li  {
+    list-style: none;
+}
+
+.contact ul li i, .hobby ul li i, .award ul li i{
+    margin-right: 4px;
+    color: #BC85A3;
+}
+
+#content-activity > div {
+    margin-left: 20px;
+    padding: 10px 0;
+}
+
+#content-activity > div:last-child {
+    padding-bottom: 0;
+}
+
+#content-activity div .header {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+#content-activity div .header font, 
+#content-activity div .header b,
+#content-activity div .header a,
+#content-activity div .header i,
+#content-activity div .header u {
+    font-size: 1.5rem;
+}
+
+#content-activity div .time {
+    font-size: 1.4rem;
+    color: #BC85A3;
+}
+
+#content-activity div .time font, 
+#content-activity div .time b,
+#content-activity div .time a,
+#content-activity div .time i,
+#content-activity div .time u {
+    font-size: 1.4rem;
+}
+
+#content-activity div .content {
+    font-size: 1.4rem;
+}
+
+#content-activity div .content font, 
+#content-activity div .content b,
+#content-activity div .content a,
+#content-activity div .content i,
+#content-activity div .content u {
+    font-size: 1.4rem;
+}
+
+#contact-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-content div {
+    margin: 5px 0;
+}
+
+#contact-content div a {
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.address {
+    order: 1;
+}
+
+.phone {
+    order: 2;
+}
+
+.email {
+    order: 3;
+}
+
+.github {
+    order: 4;
+}
+
+.linkedin {
+    order: 5;
+}
+
+.website {
+    order: 6;
+}
 .cv-main-right {
     background-color: #F8DAE9;
-    width: 50%;
-    padding: 0 20px;
+    width: calc(55% - 34px);
     margin-top: 30px;
+}
+
+.cv-main-right-item {
+    padding: 10px 30px;
 }
 
 .cv-main-right-item:first-child {
     margin-top: 0;
-    padding-top: 10px;
+    /* padding-top: 10px; */
 }
 
 .cv-main-right-item .title {
@@ -330,13 +437,15 @@
     text-transform: uppercase;
     text-align: center;
     position: relative;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 .cv-main-right-item .title b,
 .cv-main-right-item .title font,
 .cv-main-right-item .title u,
-.cv-main-right-item .title i {
+.cv-main-right-item .title i,
+.cv-main-right-item .title a {
     font-size: 1.8rem;
 }
 
@@ -382,7 +491,7 @@
 .cv-main-right-item .title:after {
     content: "";
     position: absolute;
-    bottom: -8px;
+    bottom: 10px;
     left: calc(50% - 100px);
     width: 4px;
     height: 4px;
@@ -413,26 +522,29 @@
 .editable {
     border: none;
     outline: none;
-    padding: 4px 10px;
 }
 
 .editable:focus {
-    outline: 1px dashed #505C69;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    outline: 1px solid #ccc;
+    box-shadow: 50px 0 0px 4px #f4f5f5, -50px 0 0 4px #f4f5f5;
+    z-index: 1;
+    border-radius: 0.1px;
 }
 
-.editor-controller, .add-skill, .add-activity, .add-experience, .add-education  {
+.editor-controller, .add-skill, .add-experience, .add-education, .add-contact, .add-hobby, .add-award {
     position: relative;
 }
 
 .editor-controller .fa-trash-alt {
     position: absolute;
     top: calc(50% - 7px);
-    right: -16px;
-    -user-modify: none;
-    -webkit-user-modify: none;
-    -moz-user-modify: none;
+    right: calc(-25px + -11px);
+    user-select: none;
     cursor: pointer;
-    font-size: 1.6rem;
+    font-size: 2.2rem;
     color: #ED5565;
     z-index: 1;
 }
@@ -443,15 +555,15 @@
     transition-delay: 0.1s;
 }
 
-.add-skill .fa-plus-circle, .add-activity .fa-plus-circle, .add-experience .fa-plus-circle, .add-education .fa-plus-circle {
+.add-skill .fa-plus-circle, .add-activity .fa-plus-circle, 
+.add-experience .fa-plus-circle, .add-education .fa-plus-circle, 
+.add-contact .fa-plus-circle, .add-hobby .fa-plus-circle, 
+.add-award .fa-plus-circle {
     position: absolute;
     top: calc(50% - 7px);
-    left: -18px;
-    font-size: 1.6rem;
+    left: calc(-25px + -13px);
+    font-size: 2.2rem;
     color: #00B14F;
-    -user-modify: none;
-    -webkit-user-modify: none;
-    -moz-user-modify: none;
     user-select: none;
     cursor: pointer;
     z-index: 1;
@@ -462,7 +574,6 @@
     transition: 0.25s;
     transition-delay: 0.1s;
 }
-
 
 .modal-full {
     width: 100vw;

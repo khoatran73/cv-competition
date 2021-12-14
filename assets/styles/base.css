@@ -13,7 +13,8 @@
 
 a {
     text-decoration: none;
-    color: var(--text-color);
+    color: #3766A1;
+    cursor: pointer;
 }
 
 img {

@@ -6,7 +6,7 @@ $(".color-item").click(function () {
     const lightColor = $(this).attr("data-light")
 
     $(".dark-color").css("background-color", darkColor)
-    $(".dark-color-icon").css("color", darkColor)
+    $(".dark-color-item").css("color", darkColor)
     $(".light-color").css("background-color", lightColor)
 })
 
@@ -320,8 +320,69 @@ function addSkill() {
     xhr.send()
 }
 
+function removePlusIcon(e) {
+    let element = e.target
+    let listChild = element.childNodes
+
+    // element.removeChild(listChild[listChild.length - 2])
+    element.removeChild(listChild[listChild.length - 1])
+}
+
 
 function displayPlusIcon() {
+    $(".contact").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-contact")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus-circle")
+        plusIcon.classList.add("open-contact-modal")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => {
+            $(".open-contact-modal").attr("data-toggle", "modal")
+            $(".open-contact-modal").attr("data-target", "#contact-modal")
+            checkContactItem()
+        })
+    })
+
+    $(".contact").focusout(e => removePlusIcon(e))
+
+    $(".hobby").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-hobby")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus-circle")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => {
+            addHobby()
+            loadMargin()
+        })
+    })
+
+    $(".hobby").focusout(e => removePlusIcon(e))
+
+    $(".award").focus(e => {
+        const element = e.target
+        const plusIcon = document.createElement("i")
+
+        element.classList.add("add-award")
+        plusIcon.classList.add("fas")
+        plusIcon.classList.add("fa-plus-circle")
+        element.appendChild(plusIcon)
+
+        plusIcon.addEventListener("click", () => {
+            addAward()
+            loadMargin()
+        })
+    })
+
+    $(".award").focusout(e => removePlusIcon(e))
+
     $(".skill").focus(e => {
         const element = e.target
         const plusIcon = document.createElement("i")
@@ -337,7 +398,7 @@ function displayPlusIcon() {
         })
     })
 
-    $(".skill").focusout(() => $(".skill").removeClass("add-skill"))
+    $(".skill").focusout(e => removePlusIcon(e))
 
     $(".activity").focus(e => {
         const element = e.target
@@ -354,7 +415,7 @@ function displayPlusIcon() {
         })
     })
 
-    $(".activity").focusout(() => $(".activity").removeClass("add-activity"))
+    $(".activity").focusout(e => removePlusIcon(e))
 
     $(".education").focus(e => {
         const element = e.target
@@ -371,7 +432,7 @@ function displayPlusIcon() {
         })
     })
 
-    $(".education").focusout(() => $(".education").removeClass("add-education"))
+    $(".education").focusout(e => removePlusIcon(e))
 
     $(".experience").focus(e => {
         const element = e.target
@@ -388,21 +449,41 @@ function displayPlusIcon() {
         })
     })
 
-    $(".experience").focusout(() => $(".experience").removeClass("add-experience"))
+    $(".experience").focusout(e => removePlusIcon(e))
 }
 
 displayPlusIcon()
 
+function addHobby() {
+    let hobby = document.createElement("li")
+    hobby.innerHTML = `
+        <i class="fas fa-heart dark-color-item"></i>
+        Chơi thể thao
+    `
+
+    document.getElementById("content-hobby").appendChild(hobby)
+}
+
+function addAward() {
+    let award = document.createElement("li")
+    award.innerHTML = `
+        <i class="fas fa-award dark-color-item"></i>
+        <b>2020:</b> Giải nhất Hackathon
+    `
+
+    document.getElementById("content-award").appendChild(award)
+}
+
+
 function addActivity() {
-    let activity = document.createElement("li")
+    let activity = document.createElement("div")
     let id = parseInt($("#content-activity").children().length) + 1
     activity.innerHTML = `
-        <div class="header">THÁNG 1/2021</div>
-        <div class="content">
-            XUÂN TÌNH NGUYỆN: Phát quà xuân
-            cho các bạn nhỏ tại tỉnh Long An. Tham
-            gia bữa ăn tình thương và các hoạt
-            động ca hát.
+        <div class="header">KHOA CNTT - ĐH TĐT</div>
+        <div class="time dark-color-item">Tháng 6/2020</div>
+        <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
+            phát gạo cho người dân, dọn cỏ và sinh
+            hoạt ở nhà văn hoá.
         </div>`
     activity.classList.add(`activity-${id}`)
 
@@ -418,7 +499,7 @@ function addEducation() {
         <div class="time">
             2019 - nay
         </div>
-        <ul>
+        <ul class="light-color">
             <li>
                 Xếp loại: Khá
             </li>
@@ -443,7 +524,7 @@ function addExperience() {
         <div class="time">
         Thực tập Lập trình Fontend | 6/2020 - nay
         </div>
-        <ul>
+        <ul class="light-color">
             <li>
                 Hỗ trợ các anh chị trong team Frontend
             </li>
@@ -483,7 +564,7 @@ function marginTopElement(element) {
     if ($("." + element).length > 0) {
         const xhr = new XMLHttpRequest()
         xhr.onload = function () {
-            const a4Height = 1135.66
+            const a4Height = 1134.85
             const topCv = $("#cv").offset().top
             const cssMarginTop = parseInt($("." + element).css("margin-top"))
             const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
@@ -500,3 +581,94 @@ function marginTopElement(element) {
         xhr.send()
     }
 }
+
+function checkSection(className) {
+    const element = document.querySelector(`.${className}`)
+    if (element) {
+        const addElement = $(`.add-element[data-class=${className}]`)?.parent()[0]
+        addElement.style.backgroundColor = "#A8D0E6"
+    } else {
+        const addElement = $(`.add-element[data-class=${className}]`)?.parent()[0]
+        addElement.style.backgroundColor = "#fff"
+    }
+}
+
+function checkContactItem() {
+    const contactContent = document.getElementById("contact-content")
+    const contactData = []//["address", "phone", "email", "github", "linkedin", "website"]
+    contactContent.children.forEach(child => {
+        const className = child?.classList[0]
+        contactData.push(className)
+    })
+
+    document.querySelectorAll(".add-contact-item").forEach(contactItem => {
+        const dataClass = contactItem.dataset.class
+        if (contactData.includes(dataClass)) {
+            contactItem.style.backgroundColor = "#A8D0E6"
+        } else {
+            contactItem.style.backgroundColor = "#fff"
+        }
+    })
+}
+
+function checkSections() {
+    const element = document.querySelector(".cv-header-name-group")
+    if (element) {
+        const addElement = $(`.add-element[data-class="name"]`)?.parent()[0]
+        addElement.style.backgroundColor = "#A8D0E6"
+    } else {
+        const addElement = $(`.add-element[data-class="name"]`)?.parent()[0]
+        addElement.style.backgroundColor = "#fff"
+    }
+    checkSection("contact")
+    checkSection("hobby")
+    checkSection("activity")
+    checkSection("education")
+    checkSection("award")
+    checkSection("skill")
+    checkSection("experience")
+}
+
+$("#add-element").click(function () {
+    checkSections()
+})
+
+
+$(".add-contact-item").click(function () {
+    const dataClass = $(this).attr("data-class")
+    if ($("." + dataClass).length > 0) {
+        swal("Oops...", dataClass + " đã có rồi", "error")
+        return
+    }
+
+    const helper = {
+        "address": `<li class="address">
+                <i class="fas fa-home dark-color-item"></i>
+                19 Nguyễn Hữu Thọ, P. Tân Phong, Q.7, TP HCM
+            </li>`,
+        "phone": `<li class="phone">
+                <i class="fas fa-phone-alt dark-color-item"></i>
+                0865998764
+            <li>`,
+        "email": `<li class="email">
+                <i class="fas fa-envelope dark-color-item"></i>
+                baovy@gmail.com
+            <li>`,
+        "github": `<li class="github">
+                <i class="fab fa-github dark-color-item"></i>
+                baovy0105
+            </li>`,
+        "linkedin": `<li class="linkedin">
+                <i class="fab fa-linkedin dark-color-item"></i>
+                Bảo Vy
+            </li>`,
+        "website": `<li class="website">
+                <i class="fas fa-globe dark-color-item"></i>
+                Facebook
+            </li>`
+    }
+
+    const element = helper[dataClass]
+
+    $("#contact-content").append(element)
+})

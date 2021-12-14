@@ -384,7 +384,8 @@
 
 .cv-main-right-item ul li ul li, .cv-main-right-item ul li li {
     list-style-type: disc;
-    margin: 4px 0 4px 40px;
+    margin-left: 40px;
+    /* padding: 0  0 4px 40px; */
     font-size: 2rem;
 }
 
@@ -484,6 +485,6 @@
     }
 }
 
-a {
-    cursor: pointer;
+ul {
+    margin-bottom: 0;
 }

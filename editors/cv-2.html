@@ -63,7 +63,7 @@
                                     </a>
                                 </div>
                             </div>
-                            
+
                             <div class="paper-before"></div>
                         </div>
                         <div class="style">
@@ -77,8 +77,10 @@
                                 <div class="align-center style-item"><i class="fas fa-align-center"></i></div>
                                 <div class="align-left style-item"><i class="fas fa-align-left"></i></div>
                                 <div class="align-justify style-item"><i class="fas fa-align-justify"></i></div>
-                                <div title="Thêm một thành phần" class="style-item" id="add-element" data-toggle="modal" data-target="#modal-add"><i
-                                        class="fas fa-plus"></i></div>
+                                <div title="Link" class="link style-item"><i class="fas fa-link"></i></div>
+                                <div title="Unlink" class="unlink style-item"><i class="fas fa-unlink"></i></div>
+                                <div title="Thêm một thành phần" class="style-item" id="add-element" data-toggle="modal"
+                                    data-target="#modal-add"><i class="fas fa-plus"></i></div>
                             </div>
                         </div>
                         <div class="font">
@@ -127,67 +129,85 @@
                     <div class="cv-main">
                         <div class="cv-main-left">
                             <div class="cv-main-left-item contact editable">
-                                <div class="title dark-color"><span>Liên Hệ</span></div>
-                                <ul>
-                                    <li class="address">Địa chỉ: 903 Trần Xuân Soạn, p. Tân Phong, quận 7, TP Hồ Chí
-                                        Minh</li>
-                                    <li class="phone">SĐT: 012345678</li>
-                                    <li class="email">Email: baovy@gmail.com</li>
-                                    <li class="github">Github: baovy@nodejs_vivian</li>
+                                <div class="title dark-color"><span>Thông Tin Liên Hệ</span></div>
+                                <ul id="contact-content">
+                                    <li class="address">
+                                        <i class="fas fa-home dark-color-item"></i>
+                                        19 Nguyễn Hữu Thọ, P. Tân Phong, Q.7, TP HCM
+                                    </li>
+                                    <li class="phone">
+                                        <i class="fas fa-phone-alt dark-color-item"></i>
+                                        0865998764
+                                    </li>
+                                    <li class="email">
+                                        <i class="fas fa-envelope  dark-color-item"></i>
+                                        baovy@gmail.com
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cv-main-left-item award editable">
+                                <div class="title dark-color"><span>Giải thưởng</span></div>
+                                <ul id="content-award">
+                                    <li>
+                                        <i class="fas fa-award dark-color-item"></i>
+                                        <b>2020:</b> Giải nhất Hackathon
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-award dark-color-item"></i>
+                                        <b>2019:</b> Giải ba thiết kế website với Wix.com của CLB ICON TDTU
+                                    </li>
                                 </ul>
                             </div>
                             <div class="cv-main-left-item hobby editable">
                                 <div class="title dark-color"><span>Sở thích</span></div>
-                                <ul>
-                                    <li>Vào những ngày cuối tuần
-                                        tôi thường cùng bạn bè gặp
-                                        nhau.
+                                <ul id="content-hobby">
+                                    <li>
+                                        <i class="fas fa-heart dark-color-item"></i>
+                                        Gặp gỡ bạn bè
                                     </li>
-                                    <li>Và trong những kì nghỉ
-                                        dài,tôi thường đi du lịch để
-                                        có thêm nhiều trải nghiệm
+                                    <li>
+                                        <i class="fas fa-heart dark-color-item"></i>
+                                        Du lịch
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-heart dark-color-item"></i>
+                                        Đọc sách
                                     </li>
                                 </ul>
                             </div>
                             <div class="cv-main-left-item activity editable">
                                 <div class="title dark-color"><span>Hoạt động</span></div>
-                                <ul id="content-activity">
-                                    <li class="activity-1">
-                                        <div class="header">THÁNG 7/2020</div>
-                                        <div class="content">MÙA HÈ XANH: Làm việc teamwork,
+                                <div id="content-activity">
+                                    <div class="activity-1">
+                                        <div class="header">KHOA CNTT - ĐH TĐT</div>
+                                        <div class="time dark-color-item">Tháng 6/2020</div>
+                                        <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
                                             phát gạo cho người dân, dọn cỏ và sinh
-                                            hoạt ở nhà văn hoá
+                                            hoạt ở nhà văn hoá.
                                         </div>
-                                    </li>
-                                    <li class="activity-2">
-                                        <div class="header">THÁNG 11/2020</div>
-                                        <div class="content">LEADER FLY: Dự án được thực hiện dự
-                                            trên sự quản lí tài chính của cá nhân
-                                            mỗi người, đưa ra những phân tích và
-                                            chiếc lược cho content
+                                    </div>
+                                    <div class="activity-2">
+                                        <div class="header">KHOA CNTT - ĐH TĐT</div>
+                                        <div class="time dark-color-item">Tháng 6/2020</div>
+                                        <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
+                                            phát gạo cho người dân, dọn cỏ và sinh
+                                            hoạt ở nhà văn hoá.
                                         </div>
-                                    </li>
-                                    <li class="activity-3">
-                                        <div class="header">THÁNG 1/2021</div>
-                                        <div class="content">
-                                            XUÂN TÌNH NGUYỆN: Phát quà xuân
-                                            cho các bạn nhỏ tại tỉnh Long An. Tham
-                                            gia bữa ăn tình thương và các hoạt
-                                            động ca hát.
+                                    </div>
+                                    <div class="activity-3">
+                                        <div class="header">KHOA CNTT - ĐH TĐT</div>
+                                        <div class="time dark-color-item">Tháng 6/2020</div>
+                                        <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
+                                            phát gạo cho người dân, dọn cỏ và sinh
+                                            hoạt ở nhà văn hoá.
                                         </div>
-                                    </li>
-                                    <li class="activity-4">
-                                        <div class="header">THÁNG 6/2021</div>
-                                        <div class="content">
-                                            HỔ TRỢ COVID 19: Tham gia hỗ trợ phòng chống dịch Covid 19.
-                                        </div>
-                                    </li>
-                                </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="cv-main-right light-color">
                             <div class="cv-main-right-item education editable">
-                                <div class="title education-1">Học vấn</div>
+                                <div class="title education-1">Trình độ học vấn</div>
                                 <ul id="content-education">
                                     <li class="education-2">
                                         <div class="school">
@@ -229,13 +249,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="cv-main-right-item award editable">
-                                <div class="title">Giải thưởng</div>
-                                <ul>
-                                    <li>2020: Giải nhất Hackathon</li>
-                                    <li>2019: Giả ba thiết kế website với Wix.com</li>
-                                </ul>
-                            </div>
                             <div class="cv-main-right-item skill editable">
                                 <div class="title">Kỹ năng</div>
                                 <ul id="content-skill">
@@ -264,7 +277,7 @@
                                             Công ty TNHH Phần mềm FPT
                                         </div>
                                         <div class="time">
-                                           Thực tập Lập trình Fontend | 6/2020 - nay
+                                            Thực tập Lập trình Fontend | 5/2021 - nay
                                         </div>
                                         <ul>
                                             <li>
@@ -279,6 +292,22 @@
                                         </ul>
                                     </li>
                                     <li class="experience-3">
+                                        <div class="school">
+                                            Tiki.vn
+                                        </div>
+                                        <div class="time">
+                                            Thực tập Lập trình Backend | 6/2020 - 4/2021
+                                        </div>
+                                        <ul>
+                                            <li>
+                                                Lập trình Backend với NodeJS
+                                            </li>
+                                            <li>
+                                                Hoàn thành tốt các công việc được giao
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="experience-4">
                                         <div class="school">
                                             Shopee
                                         </div>
@@ -372,6 +401,61 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="contact-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Contact</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="element">
+                        <div class="element">
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="address">
+                                <div class="add-element">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                Address
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="phone">
+                                <div class="add-element">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                Phone
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="email">
+                                <div class="add-element">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                Email
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="github">
+                                <div class="add-element">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                Github
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="linkedin">
+                                <div class="add-element">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                Linkedin
+                            </div>
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="website">
+                                <div class="add-element">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                Website
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
