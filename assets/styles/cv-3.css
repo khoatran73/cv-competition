@@ -354,8 +354,11 @@
 #content-activity div .header b,
 #content-activity div .header a,
 #content-activity div .header i,
-#content-activity div .header u {
+#content-activity div .header u,
+#content-activity div .header span {
     font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
 }
 
 #content-activity div .time {
