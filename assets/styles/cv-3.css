@@ -152,20 +152,28 @@
     position: relative;
 }
 
+.introduce {
+    order: 1;
+}
+
 .contact {
-    order: 1; 
+    order: 3; 
  }
  
 .hobby {
-    order: 2; 
+    order: 4; 
+}
+
+.target {
+    order: 2;
 }
   
 .award {
-    order: 3; 
+    order: 5; 
 }
  
 .activity {
-    order: 4; 
+    order: 6; 
 }
 
 .cv-main-right {
@@ -185,6 +193,13 @@
     order: 3; 
 }
 
+.more-info {
+    order: 4; 
+}
+
+.more-info ul {
+    list-style: none;
+}
 
 :is(#content-education, #content-experience) > li {
     list-style: none;
@@ -229,7 +244,7 @@
 
 .cv-main-left-item .title {
     width: 280px;
-    min-height: 56px;
+    height: 56px;
     position: relative;
     background-color: #77838d;
     display: flex;
@@ -335,6 +350,39 @@
     color: #77838D;
 }
 
+#contact-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.birthday {
+    order: 1;
+}
+
+.address {
+    order: 2;
+}
+
+.phone {
+    order: 3;
+}
+
+.email {
+    order: 4;
+}
+
+.github {
+    order: 5;
+}
+
+.linkedin {
+    order: 6;
+}
+
+.website {
+    order: 7;
+}
+
 
 #content-activity > div {
     /* margin-left: 20px; */
@@ -409,10 +457,7 @@
 
 .cv-main-right-item:first-child {
     margin-top: 0;
-}
-
-.cv-main-right-item:last-child {
-    padding-bottom: 0;
+    padding-top: 14px;
 }
 
 .cv-main-right-item .title {

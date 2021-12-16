@@ -48,15 +48,50 @@ function addElement(element) {
         case "name":
             addNameElement()
             break
+        case "introduce":
+            classElement = `<div class="cv-main-left-item introduce editable">
+                <div class="title dark-color"><span>Tóm tắt bản thân</span></div>
+                <ul id="content-introduce">
+                    <li>
+                        - Có niềm đam mê mãnh liệt với ngành IT.
+                    </li>
+                    <li>
+                        - Là một người điềm tĩnh, thích ứng nhanh với công việc, môi trường sống mới, không ngại khó, chịu khó tìm tòi học hỏi.
+                    </li>
+                </ul>
+            </div>`
+            addCvMainLeftElement("introduce", classElement)
+            break
+        case "target":
+            classElement = `<div class="cv-main-left-item target editable">
+                <div class="title dark-color"><span>Mục tiêu</span></div>
+                <ul id="content-target">
+                    <li>
+                        <b>Ngắn hạn: </b>Trở thành một Front-end Developer, tích lũy thêm nhiều kinh nghiệm làm việc cũng như kỹ năng.
+                    </li>
+                    <li>
+                        <b>Dài hạn: </b>Đỗ thạc sĩ và có cơ hội thăng tiến trong công việc.
+                    </li>
+                </ul>
+            </div>`
+            addCvMainLeftElement("target", classElement)
+            break
         case "contact":
             classElement = `<div class="cv-main-left-item contact editable">
-                <div class="title dark-color"><span>Liên Hệ</span></div>
-                <ul>
-                    <li class="address">Địa chỉ: 903 Trần Xuân Soạn, p. Tân Phong, quận 7, TP Hồ Chí
-                        Minh</li>
-                    <li class="phone">SĐT: 012345678</li>
-                    <li class="email">Email: baovy@gmail.com</li>
-                    <li class="github">Github: baovy@nodejs_vivian</li>
+                <div class="title dark-color"><span>Thông Tin Liên Hệ</span></div>
+                <ul id="contact-content">
+                    <li class="address">
+                        <i class="fas fa-home dark-color-item"></i>
+                        19 Nguyễn Hữu Thọ, P. Tân Phong, Q.7, TP HCM
+                    </li>
+                    <li class="phone">
+                        <i class="fas fa-phone-alt dark-color-item"></i>
+                        0865998764
+                    </li>
+                    <li class="email">
+                        <i class="fas fa-envelope  dark-color-item"></i>
+                        baovy@gmail.com
+                    </li>
                 </ul>
             </div>`
             addCvMainLeftElement("contact", classElement)
@@ -64,14 +99,18 @@ function addElement(element) {
         case "hobby":
             classElement = `<div class="cv-main-left-item hobby editable">
                 <div class="title dark-color"><span>Sở thích</span></div>
-                <ul>
-                    <li>Vào những ngày cuối tuần
-                        tôi thường cùng bạn bè gặp
-                        nhau.
+                <ul id="content-hobby">
+                    <li>
+                        <i class="fas fa-heart dark-color-item"></i>
+                        Gặp gỡ bạn bè
                     </li>
-                    <li>Và trong những kì nghỉ
-                        dài,tôi thường đi du lịch để
-                        có thêm nhiều trải nghiệm
+                    <li>
+                        <i class="fas fa-heart dark-color-item"></i>
+                        Du lịch
+                    </li>
+                    <li>
+                        <i class="fas fa-heart dark-color-item"></i>
+                        Đọc sách
                     </li>
                 </ul>
             </div>`
@@ -80,38 +119,16 @@ function addElement(element) {
         case "activity":
             classElement = `<div class="cv-main-left-item activity editable">
                 <div class="title dark-color"><span>Hoạt động</span></div>
-                <ul id="content-activity">
-                    <li class="activity-1">
-                        <div class="header">THÁNG 7/2020</div>
-                        <div class="content">MÙA HÈ XANH: Làm việc teamwork,
+                <div id="content-activity">
+                    <div class="activity-1">
+                        <div class="header">KHOA CNTT - ĐH TĐT</div>
+                        <div class="time dark-color-item">Tháng 6/2020</div>
+                        <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
                             phát gạo cho người dân, dọn cỏ và sinh
-                            hoạt ở nhà văn hoá
+                            hoạt ở nhà văn hoá.
                         </div>
-                    </li>
-                    <li class="activity-2">
-                        <div class="header">THÁNG 11/2020</div>
-                        <div class="content">LEADER FLY: Dự án được thực hiện dự
-                            trên sự quản lí tài chính của cá nhân
-                            mỗi người, đưa ra những phân tích và
-                            chiếc lược cho content
-                        </div>
-                    </li>
-                    <li class="activity-3">
-                        <div class="header">THÁNG 1/2021</div>
-                        <div class="content">
-                            XUÂN TÌNH NGUYỆN: Phát quà xuân
-                            cho các bạn nhỏ tại tỉnh Long An. Tham
-                            gia bữa ăn tình thương và các hoạt
-                            động ca hát.
-                        </div>
-                    </li>
-                    <li class="activity-4">
-                        <div class="header">THÁNG 6/2021</div>
-                        <div class="content">
-                            HỔ TRỢ COVID 19: Tham gia hỗ trợ phòng chống dịch Covid 19.
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>`
             addCvMainLeftElement("activity", classElement)
             break
@@ -165,17 +182,20 @@ function addElement(element) {
             addCvMainRightElement("education", classElement)
             break
         case "award":
-            classElement = `<div class="cv-main-right-item award editable">
-                <div class="title">
-                    <i class="fas fa-award dark-color-icon"></i>
-                    Giải thưởng
-                </div>
-                <ul class="light-color">
-                    <li>2020: Giải nhất Hackathon</li>
-                    <li>2019: Giả ba thiết kế website với Wix.com</li>
+            classElement = `<div class="cv-main-left-item award editable">
+                <div class="title dark-color"><span>Giải thưởng</span></div>
+                <ul id="content-award">
+                    <li>
+                        <i class="fas fa-award dark-color-item"></i>
+                        <b>2020:</b> Giải nhất Hackathon
+                    </li>
+                    <li>
+                        <i class="fas fa-award dark-color-item"></i>
+                        <b>2019:</b> Giải ba thiết kế website với Wix.com của CLB ICON TDTU
+                    </li>
                 </ul>
             </div>`
-            addCvMainRightElement("award", classElement)
+            addCvMainLeftElement("award", classElement)
             break
         case "skill":
             classElement = `<div class="cv-main-right-item skill editable">
@@ -204,9 +224,9 @@ function addElement(element) {
             addCvMainRightElement("skill", classElement)
             break
         case "experience":
-            classElement = ` <div class="cv-main-right-item experience editable">
+            classElement = `<div class="cv-main-right-item experience editable">
                 <div class="title experience-1">
-                    <i class="fas fa-briefcase dark-color-icon"></i>
+                    <i class="fas fa-briefcase dark-color-item"></i>
                     Kinh nghiệm làm việc
                 </div>
                 <ul class="light-color" id="content-experience">
@@ -215,9 +235,9 @@ function addElement(element) {
                             Công ty TNHH Phần mềm FPT
                         </div>
                         <div class="time">
-                            Thực tập Lập trình Fontend | 6/2020 - nay
+                            Thực tập Lập trình Fontend | 5/2021 - nay
                         </div>
-                        <ul>
+                        <ul class="light-color">
                             <li>
                                 Hỗ trợ các anh chị trong team Frontend
                             </li>
@@ -230,19 +250,32 @@ function addElement(element) {
                             <li>
                                 Tháng 12/2020 đạt giải nhân viên của tháng
                             </li>
-                            <li>
-                                Tháng 5/2021 trở thành nhân viên chính thức
-                            </li>
                         </ul>
                     </li>
                     <li class="experience-3">
+                        <div class="school">
+                            Tiki.vn
+                        </div>
+                        <div class="time">
+                            Thực tập Lập trình Backend | 6/2020 - 4/2021
+                        </div>
+                        <ul class="light-color">
+                            <li>
+                                Lập trình Backend với NodeJS
+                            </li>
+                            <li>
+                                Hoàn thành tốt các công việc được giao
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="experience-4">
                         <div class="school">
                             Shopee
                         </div>
                         <div class="time">
                             Nhân viên BA | 10/2019 - 5/2020
                         </div>
-                        <ul>
+                        <ul class="light-color">
                             <li>
                                 Xây dựng hệ thống cho team Dev code
                             </li>
@@ -260,6 +293,20 @@ function addElement(element) {
                 </ul>
             </div>`
             addCvMainRightElement("experience", classElement)
+            break
+        case "more-info":
+            classElement = `<div class="cv-main-right-item more-info editable">
+                <div class="title">
+                    <i class="fas fa-info-circle"></i>
+                    Thông tin thêm
+                </div>
+                <ul class="light-color">
+                    <li>
+                        Điền các thông tin khác (nếu có)
+                    </li>
+                </ul>
+            </div>`
+            addCvMainRightElement("more-info", classElement)
             break
     }
     loadMargin()
@@ -325,7 +372,7 @@ function removePlusIcon(e) {
     let listChild = element.childNodes
 
     // element.removeChild(listChild[listChild.length - 2])
-    element.removeChild(listChild[listChild.length - 1])
+    element?.removeChild(listChild[listChild.length - 1])
 }
 
 
@@ -477,7 +524,7 @@ function addAward() {
 
 function addActivity() {
     let activity = document.createElement("div")
-    let id = parseInt($("#content-activity").children().length) + 1
+    let id = parseInt($("#content-activity").children().length) + 2
     activity.innerHTML = `
         <div class="header">KHOA CNTT - ĐH TĐT</div>
         <div class="time dark-color-item">Tháng 6/2020</div>
@@ -546,8 +593,11 @@ function marginTop(element, mT) {
 }
 
 function loadMargin() {
+    marginTopElement("award")
+    marginTopElement("hobby")
+    marginTopElement("contact")
     marginTopElement("skill")
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 5; i++) {
         marginTopElement("activity-" + i)
         marginTopElement("experience-" + i)
         marginTopElement("education-" + i)
@@ -565,12 +615,19 @@ function marginTopElement(element) {
         const xhr = new XMLHttpRequest()
         xhr.onload = function () {
             const a4Height = 1134.85
+            // let a4Height
+            // if (element.includes("experience")) {
+            //     a4Height = 1133.85
+            // } else {
+            //     a4Height = 1134.85
+            // }
+            
             const topCv = $("#cv").offset().top
             const cssMarginTop = parseInt($("." + element).css("margin-top"))
             const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
             const rect = document.querySelector("." + element)?.getBoundingClientRect()
             const bottomElement = rect?.height + topElement
-            const mT = a4Height - topElement
+            const mT = a4Height - topElement + 2
             if (topElement < a4Height && bottomElement > (a4Height - 16)) {
                 marginTop(element, mT)
             } else {
@@ -620,6 +677,8 @@ function checkSections() {
         const addElement = $(`.add-element[data-class="name"]`)?.parent()[0]
         addElement.style.backgroundColor = "#fff"
     }
+    checkSection("introduce")
+    checkSection("target")
     checkSection("contact")
     checkSection("hobby")
     checkSection("activity")
@@ -627,6 +686,7 @@ function checkSections() {
     checkSection("award")
     checkSection("skill")
     checkSection("experience")
+    checkSection("more-info")
 }
 
 $("#add-element").click(function () {
@@ -636,12 +696,31 @@ $("#add-element").click(function () {
 
 $(".add-contact-item").click(function () {
     const dataClass = $(this).attr("data-class")
+
+    const dataClassHelper = {
+        "birthday": `Ngày sinh`,
+        "address": `Địa chỉ`,
+        "phone": `Số điện thoại`,
+        "email": `Email`,
+        "github": `Github`,
+        "linkedin": `<Linkedin`,
+        "website": `Website`
+    }
+
     if ($("." + dataClass).length > 0) {
-        swal("Oops...", dataClass + " đã có rồi", "error")
+        swal(
+            "Oops...",
+            dataClassHelper[dataClass] + " đã có rồi!!!",
+            "error"
+        )
         return
     }
 
     const helper = {
+        "birthday": `<li class="birthday">
+                <i class="fas fa-calendar-day dark-color-item"></i>
+                01/05/2001
+            </li>`,
         "address": `<li class="address">
                 <i class="fas fa-home dark-color-item"></i>
                 19 Nguyễn Hữu Thọ, P. Tân Phong, Q.7, TP HCM

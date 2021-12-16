@@ -274,7 +274,9 @@
 }
 
 .modal-body {
+    max-height: 535px;
     padding: 0;
+    overflow-y: auto;
 }
 
 .modal-body .element {

@@ -127,9 +127,25 @@
                     </div>
                     <div class="cv-main">
                         <div class="cv-main-left">
+                            <div class="cv-main-left-item introduce editable">
+                                <div class="title dark-color"><span>Tóm tắt bản thân</span></div>
+                                <ul id="content-introduce">
+                                    <li>
+                                        - Có niềm đam mê mãnh liệt với ngành IT.
+                                    </li>
+                                    <li>
+                                        - Là một người điềm tĩnh, thích ứng nhanh với công việc, môi trường sống mới,
+                                        không ngại khó, chịu khó tìm tòi học hỏi.
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="cv-main-left-item contact editable">
                                 <div class="title dark-color"><span>Thông Tin Liên Hệ</span></div>
                                 <ul id="contact-content">
+                                    <li class="birthday">
+                                        <i class="fas fa-calendar-day dark-color-item"></i>
+                                        01/05/2001
+                                    </li>
                                     <li class="address">
                                         <i class="fas fa-home dark-color-item"></i>
                                         19 Nguyễn Hữu Thọ, P. Tân Phong, Q.7, TP HCM
@@ -141,6 +157,18 @@
                                     <li class="email">
                                         <i class="fas fa-envelope  dark-color-item"></i>
                                         baovy@gmail.com
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="cv-main-left-item target editable">
+                                <div class="title dark-color"><span>Mục tiêu</span></div>
+                                <ul id="content-target">
+                                    <li>
+                                        <b>Ngắn hạn: </b>Trở thành một Front-end Developer, tích lũy thêm nhiều kinh
+                                        nghiệm làm việc cũng như kỹ năng.
+                                    </li>
+                                    <li>
+                                        <b>Dài hạn: </b>Đỗ thạc sĩ và có cơ hội thăng tiến trong công việc.
                                     </li>
                                 </ul>
                             </div>
@@ -172,28 +200,16 @@
                                         <i class="fas fa-heart dark-color-item"></i>
                                         Đọc sách
                                     </li>
+                                    <li>
+                                        <i class="fas fa-heart dark-color-item"></i>
+                                        Xem phim
+                                    </li>
                                 </ul>
                             </div>
                             <div class="cv-main-left-item activity editable">
-                                <div class="title dark-color"><span>Hoạt động</span></div>
+                                <div class="title dark-color activity-1"><span>Hoạt động</span></div>
                                 <div id="content-activity">
-                                    <div class="activity-1">
-                                        <div class="header">KHOA CNTT - ĐH TĐT</div>
-                                        <div class="time dark-color-item">Tháng 6/2020</div>
-                                        <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
-                                            phát gạo cho người dân, dọn cỏ và sinh
-                                            hoạt ở nhà văn hoá.
-                                        </div>
-                                    </div>
                                     <div class="activity-2">
-                                        <div class="header">KHOA CNTT - ĐH TĐT</div>
-                                        <div class="time dark-color-item">Tháng 6/2020</div>
-                                        <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
-                                            phát gạo cho người dân, dọn cỏ và sinh
-                                            hoạt ở nhà văn hoá.
-                                        </div>
-                                    </div>
-                                    <div class="activity-3">
                                         <div class="header">KHOA CNTT - ĐH TĐT</div>
                                         <div class="time dark-color-item">Tháng 6/2020</div>
                                         <div class="content"><b>Mùa Hè Xanh:</b> Làm việc teamwork,
@@ -342,6 +358,17 @@
                                     </li>
                                 </ul>
                             </div>
+                            <!-- <div class="cv-main-right-item more-info editable">
+                                <div class="title">
+                                    <i class="fas fa-info-circle"></i>
+                                    Thông tin thêm
+                                </div>
+                                <ul class="light-color">
+                                    <li>
+                                        Điền các thông tin khác (nếu có)
+                                    </li>
+                                </ul>
+                            </div> -->
                         </div>
                     </div>
                     <div class="bottom-line" data-html2canvas-ignore="true"></div>
@@ -349,7 +376,6 @@
             </div>
         </section>
     </div>
-
     <!-- Modal -->
     <div class="modal fade" id="modal-add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
         aria-hidden="true">
@@ -365,6 +391,18 @@
                                 <i class="fa fa-plus"></i>
                             </div>
                             <span>Họ Tên</span>
+                        </div>
+                        <div class="element-item">
+                            <div class="check add-element" data-dismiss="modal" data-class="introduce">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <span>Tóm tắt bản thân</span>
+                        </div>
+                        <div class="element-item">
+                            <div class="check add-element" data-dismiss="modal" data-class="target">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <span>Mục tiêu</span>
                         </div>
                         <div class="element-item">
                             <div class="check add-element" data-dismiss="modal" data-class="contact">
@@ -408,6 +446,12 @@
                             </div>
                             <span>Kinh nghiệm làm việc</span>
                         </div>
+                        <div class="element-item">
+                            <div class="check add-element" data-dismiss="modal" data-class="more-info">
+                                <i class="fa fa-plus"></i>
+                            </div>
+                            <span>Thông tin thêm</span>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -426,6 +470,12 @@
                 <div class="modal-body">
                     <div class="element">
                         <div class="element">
+                            <div class="element-item add-contact-item" data-dismiss="modal" data-class="birthday">
+                                <div class="add-element">
+                                    <i class="fas fa-calendar-day dark-color-item"></i>
+                                </div>
+                                Birthday
+                            </div>
                             <div class="element-item add-contact-item" data-dismiss="modal" data-class="address">
                                 <div class="add-element">
                                     <i class="fas fa-map-marker-alt"></i>

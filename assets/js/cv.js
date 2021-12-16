@@ -160,13 +160,13 @@ function removeParent(e) {
     swal({
         title: "DELETE",
         text: `Delete this Section ?`,
-        icon: "warning",
+        icon: "error",
         buttons: true,
         dangerMode: true,
     })
         .then((willDelete) => {
             if (willDelete) {
-                parent.remove()
+                parent?.remove()
                 loadMargin()
                 setCvHeight()
                 swal("Your section has been deleted!", {

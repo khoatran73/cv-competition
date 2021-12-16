@@ -355,7 +355,7 @@ function removePlusIcon(e) {
     let listChild = element.childNodes
 
     // element.removeChild(listChild[listChild.length - 2])
-    element.removeChild(listChild[listChild.length - 1])
+    element?.removeChild(listChild[listChild.length - 1])
 }
 
 function checkContactItem() {
