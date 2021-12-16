@@ -279,6 +279,15 @@
     overflow-y: auto;
 }
 
+/* ::-webkit-scrollbar {
+    width: 8px;
+    background-color: #152D35;
+} */
+
+.modal-body::-webkit-scrollbar-thumb  {
+    background-color: rgb(168 208 230);
+}
+
 .modal-body .element {
     display: flex;
     flex-direction: column;

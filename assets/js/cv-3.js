@@ -614,13 +614,12 @@ function marginTopElement(element) {
     if ($("." + element).length > 0) {
         const xhr = new XMLHttpRequest()
         xhr.onload = function () {
-            const a4Height = 1134.85
-            // let a4Height
-            // if (element.includes("experience")) {
-            //     a4Height = 1133.85
-            // } else {
-            //     a4Height = 1134.85
-            // }
+            let a4Height
+            if (element.includes("experience")) {
+                a4Height = 1133.85
+            } else {
+                a4Height = 1134.85
+            }
             
             const topCv = $("#cv").offset().top
             const cssMarginTop = parseInt($("." + element).css("margin-top"))
