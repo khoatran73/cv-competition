@@ -172,7 +172,7 @@ function removeParent(e) {
     swal({
         title: "DELETE",
         text: `Delete this Section ?`,
-        icon: "error",
+        icon: "warning",
         buttons: true,
         dangerMode: true,
     })
