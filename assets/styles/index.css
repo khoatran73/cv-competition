@@ -37,12 +37,15 @@ body {
 }
 
 .header .nav .nav-cv a {
+    color: #000;
     font-size: 2rem;
+    transition: ease-in-out 0.2s;
+    transition-delay: 0.15s;
 }
 
 .header .nav .nav-cv a:hover {
     color: #396EB0;
-    transition: ease-in-out 0.2s;
+    
 }
 
 .header .nav .logo a img {
@@ -121,6 +124,7 @@ body {
     width: 200px;
     text-transform: uppercase;
     transition: padding 0.25s linear;
+    transition-delay: 0.15s;
     position: relative;
     cursor: pointer;
 }
@@ -137,6 +141,7 @@ body {
     top: 50%;
     right: 2rem;
     transform: translateY(-50%);
+    transition-delay: 0.15s;
 }
 
 .button-effect:hover i {
