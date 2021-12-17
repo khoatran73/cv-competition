@@ -419,6 +419,7 @@ function addElement(element) {
 
     }
     loadMargin()
+    setCvHeight()
 }
 
 function addNameElement() {
@@ -490,7 +491,7 @@ function marginTopElement(element) {
             const topCv = $("#cv").offset()?.top
             const cssMarginTop = parseInt($("." + element).css("margin-top")) + 2
             const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
-            const rect = document.querySelector("." + element).getBoundingClientRect()
+            const rect = document.querySelector("." + element)?.getBoundingClientRect()
             const bottomElement = rect?.height + topElement
             const mT = a4Height - topElement
             if (topElement < a4Height && bottomElement > (a4Height - 16)) {

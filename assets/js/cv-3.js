@@ -310,6 +310,7 @@ function addElement(element) {
             break
     }
     loadMargin()
+    setCvHeight()
 }
 
 

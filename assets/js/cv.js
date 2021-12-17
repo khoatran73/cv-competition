@@ -34,27 +34,39 @@ function setCvHeight() {
     const cvMainLeft = document.querySelector(".cv-main-left")
     const cvMainRight = document.querySelector(".cv-main-right")
 
-    const childClassLeft = cvMainLeft?.children[cvMainLeft.children.length - 1]?.classList[1]
-    const childClassRight = cvMainRight?.children[cvMainRight.children.length - 1]?.classList[1]
+    for (let i = 0; i < cvMainLeft.children.length; i++) {
+        const childClassLeft = cvMainLeft.children[i]?.classList[1]
+        const childLeft = document.querySelector("." + childClassLeft)
+        const rectLeft = childLeft?.getBoundingClientRect()
+        const topCv = $("#cv").offset().top
+        const topElementLeft = $("." + childClassLeft).offset()?.top - topCv
 
-    const childLeft = document.querySelector("." + childClassLeft)
-    const childRight = document.querySelector("." + childClassRight)
+        if ((topElementLeft + rectLeft?.height) > 1135.86) {
+            if (!$("#cv").hasClass("cv-height"))
+                $("#cv").addClass("cv-height")
 
-    const rectLeft = childLeft?.getBoundingClientRect()
-    const rectRight = childRight?.getBoundingClientRect()
-
-    const topCv = $("#cv").offset().top
-
-    const topElementLeft = $("." + childClassLeft).offset()?.top - topCv
-    const topElementRight = $("." + childClassRight).offset()?.top - topCv
-
-    if ((topElementLeft + rectLeft?.height) > 1135.86 || (topElementRight + rectRight?.height) > 1135.86) {
-        if (!$("#cv").hasClass("cv-height"))
-            $("#cv").addClass("cv-height")
-    } else {
-        if ($("#cv").hasClass("cv-height"))
-            $("#cv").removeClass("cv-height")
+            return
+        }
     }
+
+    for (let i = 0; i < cvMainRight.children.length; i++) {
+        const childClassRight = cvMainRight.children[i]?.classList[1]
+        const childRight = document.querySelector("." + childClassRight)
+        const rectRight = childRight?.getBoundingClientRect()
+        const topCv = $("#cv").offset().top
+        const topElementRight = $("." + childClassRight).offset()?.top - topCv
+
+        if ((topElementRight + rectRight?.height) > 1135.86) {
+            if (!$("#cv").hasClass("cv-height"))
+                $("#cv").addClass("cv-height")
+
+            return
+        }
+    }
+
+    if ($("#cv").hasClass("cv-height"))
+        $("#cv").removeClass("cv-height")
+
 }
 
 setCvHeight()
@@ -126,7 +138,7 @@ function execCommandWithValue(command, value) {
 
 $(document).on('scroll', function () {
     loadMargin()
-    setCvHeight()
+    // setCvHeight()
 })
 
 // Display trash icon
@@ -151,7 +163,7 @@ function handleTrashIcon() {
         let listChild = element.childNodes
 
         // element.removeChild(listChild[listChild.length - 2])
-        element.removeChild(listChild[listChild.length - 1])
+        element?.removeChild(listChild[listChild?.length - 1])
     })
 }
 
@@ -173,7 +185,7 @@ function removeParent(e) {
                     icon: "success",
                 })
             } else {
-                swal("Your section is safe!");
+                swal("Your section is safe!")
             }
         })
 }

@@ -242,6 +242,7 @@ function addElement(element) {
             break
     }
     loadMargin()
+    setCvHeight()
 }
 
 function addNameElement() {
