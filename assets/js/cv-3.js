@@ -10,6 +10,8 @@ $(".color-item").click(function () {
     $(".light-color").css("background-color", lightColor)
 })
 
+loadMargin()
+
 function slider() {
     for (let i = 1; i <= $("#content-skill").children().length; i++) {
         let oldValue = $("#slider-" + i).val()
@@ -28,17 +30,17 @@ slider()
 
 $(".add-element").click(function () {
     const element = $(this).attr("data-class")
-    const xhr = new XMLHttpRequest()
-    xhr.onload = function () {
-        addElement(element)
-        enableEditable()
-        userEdit()
-        handleTrashIcon()
-        displayPlusIcon()
-        slider()
-    }
-    xhr.open("GET", "cv-2.html", true)
-    xhr.send()
+    // const xhr = new XMLHttpRequest()
+    // xhr.onload = function () {
+    addElement(element)
+    enableEditable()
+    userEdit()
+    handleTrashIcon()
+    displayPlusIcon()
+    slider()
+    // }
+    // xhr.open("GET", "cv-3.html", true)
+    // xhr.send()
 })
 
 
@@ -360,12 +362,12 @@ function addSkill() {
 
     document.getElementById("content-skill").appendChild(skill)
 
-    const xhr = new XMLHttpRequest()
-    xhr.onload = function () {
-        slider()
-    }
-    xhr.open("GET", "cv-2.html", true)
-    xhr.send()
+    // const xhr = new XMLHttpRequest()
+    // xhr.onload = function () {
+    slider()
+    // }
+    // xhr.open("GET", "cv-3.html", true)
+    // xhr.send()
 }
 
 function removePlusIcon(e) {
@@ -373,19 +375,15 @@ function removePlusIcon(e) {
     let listChild = element.childNodes
 
     // element.removeChild(listChild[listChild.length - 2])
-    element?.removeChild(listChild[listChild.length - 1])
+    element?.removeChild(listChild[listChild?.length - 1])
 }
 
-
-function displayPlusIcon() {
+function contactPlus() {
     $(".contact").focus(e => {
         const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-contact")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus-circle")
+        const plusIcon = createPlusIcon(element, "add-contact")
         plusIcon.classList.add("open-contact-modal")
+
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -396,14 +394,12 @@ function displayPlusIcon() {
     })
 
     $(".contact").focusout(e => removePlusIcon(e))
+}
 
+function hobbyPlus() {
     $(".hobby").focus(e => {
         const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-hobby")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus-circle")
+        const plusIcon = createPlusIcon(element, "add-hobby")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -413,14 +409,12 @@ function displayPlusIcon() {
     })
 
     $(".hobby").focusout(e => removePlusIcon(e))
+}
 
+function awardPlus() {
     $(".award").focus(e => {
         const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-award")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus-circle")
+        const plusIcon = createPlusIcon(element, "add-award")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -430,14 +424,12 @@ function displayPlusIcon() {
     })
 
     $(".award").focusout(e => removePlusIcon(e))
+}
 
+function skillPlus() {
     $(".skill").focus(e => {
         const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-skill")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus-circle")
+        const plusIcon = createPlusIcon(element, "add-skill")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -447,14 +439,12 @@ function displayPlusIcon() {
     })
 
     $(".skill").focusout(e => removePlusIcon(e))
+}
 
+function activityPlus() {
     $(".activity").focus(e => {
         const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-activity")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus-circle")
+        const plusIcon = createPlusIcon(element, "add-activity")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -464,14 +454,12 @@ function displayPlusIcon() {
     })
 
     $(".activity").focusout(e => removePlusIcon(e))
+}
 
+function educationPlus() {
     $(".education").focus(e => {
         const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-education")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus-circle")
+        const plusIcon = createPlusIcon(element, "add-education")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -481,14 +469,12 @@ function displayPlusIcon() {
     })
 
     $(".education").focusout(e => removePlusIcon(e))
+}
 
+function experiencePlus() {
     $(".experience").focus(e => {
         const element = e.target
-        const plusIcon = document.createElement("i")
-
-        element.classList.add("add-experience")
-        plusIcon.classList.add("fas")
-        plusIcon.classList.add("fa-plus-circle")
+        const plusIcon = createPlusIcon(element, "add-experience")
         element.appendChild(plusIcon)
 
         plusIcon.addEventListener("click", () => {
@@ -498,6 +484,27 @@ function displayPlusIcon() {
     })
 
     $(".experience").focusout(e => removePlusIcon(e))
+}
+
+
+function displayPlusIcon() {
+    contactPlus()
+    hobbyPlus()
+    awardPlus()
+    skillPlus()
+    activityPlus()
+    educationPlus()
+    experiencePlus()
+}
+
+function createPlusIcon(element, className) {
+    const plusIcon = document.createElement("i")
+    element.classList.add(`${className}`)
+    plusIcon.classList.add("fas")
+    plusIcon.classList.add("fa-plus-circle")
+    plusIcon.contentEditable = "false"
+
+    return plusIcon
 }
 
 displayPlusIcon()
@@ -605,37 +612,33 @@ function loadMargin() {
     }
 }
 
-loadMargin()
-$(".editable").keydown(function () {
-    loadMargin()
-    setCvHeight()
-})
+
 
 function marginTopElement(element) {
     if ($("." + element).length > 0) {
-        const xhr = new XMLHttpRequest()
-        xhr.onload = function () {
-            let a4Height
-            if (element.includes("experience")) {
-                a4Height = 1133.85
-            } else {
-                a4Height = 1134.85
-            }
-            
-            const topCv = $("#cv").offset().top
-            const cssMarginTop = parseInt($("." + element).css("margin-top"))
-            const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
-            const rect = document.querySelector("." + element)?.getBoundingClientRect()
-            const bottomElement = rect?.height + topElement
-            const mT = a4Height - topElement + 2
-            if (topElement < a4Height && bottomElement > (a4Height - 16)) {
-                marginTop(element, mT)
-            } else {
-                marginTop(element, 0)
-            }
+        // const xhr = new XMLHttpRequest()
+        // xhr.onload = function () {
+        let a4Height
+        if (element.includes("experience")) {
+            a4Height = 1133.85
+        } else {
+            a4Height = 1134.85
         }
-        xhr.open("GET", "cv-3.html", true)
-        xhr.send()
+
+        const topCv = $("#cv").offset().top
+        const cssMarginTop = parseInt($("." + element).css("margin-top"))
+        const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
+        const rect = document.querySelector("." + element)?.getBoundingClientRect()
+        const bottomElement = rect?.height + topElement
+        const mT = a4Height - topElement + 2
+        if (topElement < a4Height && bottomElement > (a4Height - 16)) {
+            marginTop(element, mT)
+        } else {
+            marginTop(element, 0)
+        }
+        // }
+        // xhr.open("GET", "cv-3.html", true)
+        // xhr.send()
     }
 }
 
@@ -703,7 +706,7 @@ $(".add-contact-item").click(function () {
         "phone": `Số điện thoại`,
         "email": `Email`,
         "github": `Github`,
-        "linkedin": `<Linkedin`,
+        "linkedin": `Linkedin`,
         "website": `Website`
     }
 
@@ -750,4 +753,5 @@ $(".add-contact-item").click(function () {
     const element = helper[dataClass]
 
     $("#contact-content").append(element)
+    loadMargin()
 })

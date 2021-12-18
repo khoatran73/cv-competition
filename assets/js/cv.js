@@ -151,6 +151,7 @@ function handleTrashIcon() {
         element.classList.add("editor-controller")
         trashIcon.classList.add("far")
         trashIcon.classList.add("fa-trash-alt")
+        trashIcon.contentEditable = "false"
         element.appendChild(trashIcon)
 
         trashIcon.addEventListener("click", e => {
@@ -209,4 +210,16 @@ formUpload.addEventListener("change", e => {
 
     })
     loadMargin()
+})
+
+
+$(".editable").keydown(function () {
+    const xhr = new XMLHttpRequest()
+    xhr.onload = function () {
+        loadMargin()
+        setCvHeight()
+    }
+    xhr.open("GET", "cv-3.html", true)
+    xhr.send()
+
 })

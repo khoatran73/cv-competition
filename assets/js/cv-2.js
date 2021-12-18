@@ -311,28 +311,28 @@ function addSkill() {
 
     document.getElementById("content-skill").appendChild(skill)
 
-    const xhr = new XMLHttpRequest()
-    xhr.onload = function () {
-        slider()
-    }
-    xhr.open("GET", "cv-2.html", true)
-    xhr.send()
+    // const xhr = new XMLHttpRequest()
+    // xhr.onload = function () {
+    slider()
+    // }
+    // xhr.open("GET", "cv-2.html", true)
+    // xhr.send()
 }
 
 // Add element
 $(".add-element").click(function () {
     const element = $(this).attr("data-class")
-    const xhr = new XMLHttpRequest()
-    xhr.onload = function () {
-        addElement(element)
-        enableEditable()
-        userEdit()
-        handleTrashIcon()
-        displayPlusIcon()
-        slider()
-    }
-    xhr.open("GET", "cv-2.html", true)
-    xhr.send()
+    // const xhr = new XMLHttpRequest()
+    // xhr.onload = function () {
+    addElement(element)
+    enableEditable()
+    userEdit()
+    handleTrashIcon()
+    displayPlusIcon()
+    slider()
+    // }
+    // xhr.open("GET", "cv-2.html", true)
+    // xhr.send()
 })
 
 function slider() {
@@ -622,34 +622,34 @@ function loadMargin() {
 }
 
 loadMargin()
-$(".editable").keydown(function () {
-    loadMargin()
-    setCvHeight()
-})
+// $(".editable").keydown(function () {
+//     loadMargin()
+//     setCvHeight()
+// })
 
 function marginTopElement(element) {
     if ($("." + element)?.length > 0) {
-        const xhr = new XMLHttpRequest()
-        xhr.onload = function () {
-            if (element == "activity-2" || element == "activity-1") {
-                a4Height = 1134.8
-            } else {
-                a4Height = 1135.3
-            }
-            const topCv = $("#cv").offset()?.top
-            const cssMarginTop = parseInt($("." + element).css("margin-top")) + 2
-            const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
-            const rect = document.querySelector("." + element).getBoundingClientRect()
-            const bottomElement = rect?.height + topElement
-            const mT = a4Height - topElement
-            if (topElement < a4Height && bottomElement > (a4Height - 16)) {
-                marginTop(element, mT)
-            } else {
-                marginTop(element, 0)
-            }
+        // const xhr = new XMLHttpRequest()
+        // xhr.onload = function () {
+        if (element == "activity-2" || element == "activity-1") {
+            a4Height = 1134.8
+        } else {
+            a4Height = 1135.3
         }
-        xhr.open("GET", "cv-2.html", true)
-        xhr.send()
+        const topCv = $("#cv").offset()?.top
+        const cssMarginTop = parseInt($("." + element).css("margin-top")) + 2
+        const topElement = $("." + element).offset()?.top - topCv - cssMarginTop
+        const rect = document.querySelector("." + element).getBoundingClientRect()
+        const bottomElement = rect?.height + topElement
+        const mT = a4Height - topElement
+        if (topElement < a4Height && bottomElement > (a4Height - 16)) {
+            marginTop(element, mT)
+        } else {
+            marginTop(element, 0)
+        }
+        // }
+        // xhr.open("GET", "cv-2.html", true)
+        // xhr.send()
     }
 }
 

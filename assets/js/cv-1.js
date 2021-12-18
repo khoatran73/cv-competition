@@ -117,12 +117,12 @@ function addSkill() {
 
     document.getElementById("content-skill").appendChild(skill)
 
-    const xhr = new XMLHttpRequest()
-    xhr.onload = function () {
+    // const xhr = new XMLHttpRequest()
+    // xhr.onload = function () {
         slider()
-    }
-    xhr.open("GET", "cv-1.html", true)
-    xhr.send()
+    // }
+    // xhr.open("GET", "cv-1.html", true)
+    // xhr.send()
 }
 
 function addExperience() {
@@ -206,17 +206,17 @@ $("#add-element").click(function () {
 
 $(".add-element").click(function () {
     const element = $(this).attr("data-class")
-    const xhr = new XMLHttpRequest()
-    xhr.onload = function () {
+    // const xhr = new XMLHttpRequest()
+    // xhr.onload = function () {
         addElement(element)
         enableEditable()
         userEdit()
         handleTrashIcon()
         displayPlusIcon()
         slider()
-    }
-    xhr.open("GET", "cv-1.html", true)
-    xhr.send()
+    // }
+    // xhr.open("GET", "cv-1.html", true)
+    // xhr.send()
 })
 
 function addElement(element) {
@@ -472,15 +472,15 @@ function loadMargin() {
 }
 
 loadMargin()
-$(".editable").keydown(function () {
-    loadMargin()
-    setCvHeight()
-})
+// $(".editable").keydown(function () {
+//     loadMargin()
+//     setCvHeight()
+// })
 
 function marginTopElement(element) {
     if ($("." + element)?.length > 0) {
-        const xhr = new XMLHttpRequest()
-        xhr.onload = function () {
+        // const xhr = new XMLHttpRequest()
+        // xhr.onload = function () {
             let a4Height
             if (!element.includes("experience-") && !element.includes("education-")) {
                 a4Height = 1135.66
@@ -499,9 +499,9 @@ function marginTopElement(element) {
             } else {
                 marginTop(element, 0)
             }
-        }
-        xhr.open("GET", "cv-1.html", true)
-        xhr.send()
+        // }
+        // xhr.open("GET", "cv-1.html", true)
+        // xhr.send()
     }
 }
 
