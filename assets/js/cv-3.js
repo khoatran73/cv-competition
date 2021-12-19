@@ -604,6 +604,7 @@ function loadMargin() {
     marginTopElement("award")
     marginTopElement("hobby")
     marginTopElement("contact")
+    marginTopElement("more-info")
     marginTopElement("skill")
     for (let i = 1; i <= 5; i++) {
         marginTopElement("activity-" + i)
