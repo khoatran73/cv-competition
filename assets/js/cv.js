@@ -76,7 +76,6 @@ enableEditable()
 function enableEditable() {
     $(".editable").attr('contenteditable', 'true')
     $("#file-name").attr('contenteditable', 'true')
-    $("#plus").attr("contentediable", "false")
 }
 
 $("#file-name").keypress(function (e) {
